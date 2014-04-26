@@ -1,0 +1,24 @@
+
+<%= form_for @user do |f| %>
+
+	<% if @user.errors.any? %>
+		<ul>
+		<% @user.errors.full_messages.each do |message| %>
+			<li> <%= message %> </li>
+		<% end %>
+		</ul>
+	<% end %>
+
+	<%= f.label :email %><br>
+	<%= f.text_field :email %><br>
+
+	<%= f.label :password %><br>
+	<%= f.password_field :password %><br>
+
+	<%= f.label :password_confirmation %><br>
+	<%= f.password_field :password_confirmation %><br>
+
+	<%= recaptcha_tags %>
+
+	<%= f.submit %>
+<% end %>

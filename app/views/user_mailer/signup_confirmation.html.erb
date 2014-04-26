@@ -1,0 +1,8 @@
+<h4>Dear, <%= @user.email %></h4>
+
+<p> Thank you for sign-up.
+    You are just one step more from activating your account.
+    Please confirm your registration through the following link: 
+    <%= link_to "Click here to confirm registration", 
+    			confirmation_user_path(@user, code: @user.confirmation_code) %> 
+</p>

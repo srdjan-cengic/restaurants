@@ -1,0 +1,13 @@
+<div class="admin-dashboard-login">
+	<% if current_user %>
+		Logged in as super admin [<%= current_user.email %>]
+		<%= link_to "Log out", logout_path %>
+	<% end %>
+
+	<div class="navigation">
+		<%= link_to_unless_current "English", locale: "en" %> |
+		<%= link_to_unless_current "Bosnian", locale: "bs" %>
+	</div>
+
+	<h1><%= t ".main_header" %></h1>
+</div>

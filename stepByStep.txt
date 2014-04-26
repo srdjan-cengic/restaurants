@@ -1,0 +1,156 @@
+"The combination will constitute a Users resource, which will allow us to think of users as objects 
+ that can be created, read, updated, and deleted through the web via the HTTP protocol."
+
+ "I'm wondering when you know that you need to create a controller in a rails application.
+
+ "For example, I'm going through the tutorial in Agile Web Development with Rails and the application creates  several models, all with seperate views and contollers. However, we also then create a Store controller, but no model associated with it. Why do we need a controller with no model?"
+
+ I think the question would be more suitable if you'd put it another way:
+
+Why do we need model (AR in this case) for every controller?
+
+And the answer of course is, you don't. When you are thinking about controllers it's best not to think about data, but take a slight step back, and think about resources. If you search for REST in internet, you will find a lot of articles and most of them will include various explanations of terms resource and representation. To make this story short, let's just oversimplify and say that resource is everything that's worth mentioning. Articles is a (collection) resource. Store is a (singular, member) resource.
+
+Take signing in users for example. You probably already have UsersController which (by default) will allow you adding new users (create resource), deleting them (remove resource), displaying single user and also all users. If you just think in terms of data and controllers, you probably would start creating additional actions like login_user in UserController, which is a smell. If you think about resources, and that is "everything that's worth mentioning about or creating URI for it", you might think that you need another resource, and that is: sessions. Think about this way: when user signs in, he actually creates a session resource. And with sign out, you delete, remove the resource.
+
+To recap, this may help you in figuring out when you need new controller:
+
+When you think about putting non RESTful actions in controller like log_in, calculate_date, ect.
+When there is something that you can name and that is "interesting" enough to be a separate resource.
+
+//////////////////////////////////////////// ACTION MAILER /////////////////////////////////////////////////////////
+Nakon sign-up-a zelis registrovanom korisniku da posaljes mail.
+Trenutno samo spasavas user-a u bazu. Da bi to uradio u railsu moras kreirati "mailer".
+
+Mailers are very similar to Rails controllers. They also have methods called "actions" and use views to structure the content. Where a controller generates content like HTML to send back to the client, a Mailer creates a message to be delivered via email.
+
+rails g mailer user_mail signup_confirmation
+	rails generate mailer NAME [method method] [options]
+
+D:\Srle-oliveBh\rails\Projects\restaurants-ba>rails g mailer user_mailer signup_confirmation
+      create  app/mailers/user_mailer.rb
+      invoke  erb
+      create    app/views/user_mailer
+      create    app/views/user_mailer/signup_confirmation.text.erb
+      invoke  test_unit
+      create    test/mailers/user_mailer_test.rb
+
+Iz mailera (user_mailer.rb) najnormalnije mozes proslijediti varijable pogledu (signup_confirmation.text.erb)
+Because "Mailers are very similar to Rails controllers."
+
+################ DEFAULTNI IZGLED mailera(user_mailer.rb) method = signup_confirmation(method iz generatora)
+class UserMailer < ActionMailer::Base
+  default from: "from@example.com"
+
+  # Subject can be set in your I18n file at config/locales/en.yml
+  # with the following lookup:
+  #
+  #   en.user_mailer.signup_confirmation.subject
+  #
+  def signup_confirmation
+    @greeting = "Hi"
+
+    mail to: "to@example.org"
+  end
+end
+
+################ I18N ################
+Desni gornji ugao stranice => combo za selektovanje jezika.
+Bukvalno ces naci staticki tekst na stranicama u view templejtima i ekstrakt ces to na drugu lokaciju
+kako bi moglo biti loadano dinamicki bazirano na jeziku koji je user selektovao.
+Replace statickog teksta ces raditi preko "t" metode
+  <h1>Browse product</h1> <=> <%= t "products.title" %> kojoj ces proslijediti "unique key" da identifikujes ovaj tekst.
+
+  Kada bih sada otvorio tu stranicu u browseru <%= t "products.Title" %> dobio bi samo "title"
+  U page source-u stoji slijedece:
+    <span class="translation_missing" title="translation missing: en.products.title">Title</span>
+
+  Lokacija se defautlno drzi u yml fajlu u config/locales folderu.
+  Defaultno vec postoji en.yml, treba dodati ba.yml
+
+  Kao primjer dodaj u en.yml slijedece:
+    en:
+      products:
+        title: "Juhuuuu Browse your products now!"
+
+  Dakle products.title odgovaran nestovanju unutar yml fajla, dakle:
+  Locale data should be indented two spaces, not four, so correct version is:
+  en.products.title (u erb-u) <=> en:
+                                    products:
+                                      title: "neki tekst"
+
+  Ako je tekst unikatan templejtu, pocni translaciju sa tackom (.)
+  <%= t ".description" %>, ovo ce automatski prefiksirati translation key sa pathom templejta.
+  Pa npr, templejt se nalazi u: views/admin/dashboard/index.html.erb
+  onda je <%= t ".title" %> <=> <%= t "admin.dashboard.index.title" %>
+
+  <div class="navigation">
+    <%= link_to_unless_current "English", locale: "en" %> |
+    <%= link_to_unless_current "Bosnian", locale: "ba" %>
+  </div>
+
+  Creates a link tag of the given name using a URL created by the set of options unless the current request URI is the same as the links, in which case only the name is returned
+
+  "Link to english version ako ona nije trenutna"
+  http://localhost:3000/admin/dashboard?locale=ba
+    => English link aktivan
+
+  Inace dobijas dva linka:
+    <a href="/admin/dashboard?locale=en">English</a>
+    <a href="/admin/dashboard?locale=ba">Bosnian</a>  
+
+  Ideja je da ta logika ode u application kontroler, zasto?
+  Zelis da se to dogodi prije svake akcije. before_filter :set_locale
+  How to apply before_filter to every action of every controller in Rails?
+    To ensure that filters apply to all actions, place it in the application_controller.rb.
+
+    Application Controller is the base class of all other classes.
+    If you put any filter in this class then the flow works as follows:
+
+    If you hit url say of users resource with any action say index action then:
+
+    The control first goes to Application Controller. There it checks for filters, if finds any 
+    then it executes the filter method and after that it goes to index action of users controller.
+
+    def set_locale
+      I18n.local = params[:locale] if params[:locale].present?
+    end
+
+    Drugi nacini:
+      Ako imas current_user (user model), mozes dodati current_user.locale (kolona u user tabeli) to bi user set-ovao.
+      request environment = request.ENV["ACCEPT_HTTP_LANGUAGE"] sto se proslijedi iz user browsera.
+      ili
+      request.remote_ip, some kind of geoLocation.
+      Dakle nekoliko opcija za setovanje current_user locale-a.
+
+      Kad postavi locale kroz taj before filter, rails ce potraziti yaml fajl u config/locales.
+      ba.yml => ba:
+                  admin:
+                    dashboard:
+                      index:
+                        main_header: "Dobrodošli na Admin::Dashboard."
+
+      Kada dodas novi fajl u config/locales restartuj server.
+
+      How do I use the language settings of my browser to specify the language in which a server 
+      should send me pages?
+
+      When your browser pulls a document from the Web, it sends a request to the server where the information is stored. This is known as an HTTP request. With the request, the browser sends information about its language preference settings. These are preferences about the preferred language of pages, not the user interface of the browser.
+
+      The part of the HTTP request that holds this language preference information is called the Accept-Language request-header.
+
+      Jedan od problema je taj sto ?locale=nesta, nece postojati izmedju requesta.
+      Odes negdje pa se vratis na istu stranicu, vrati se i locale. How to persiste selected language.
+      1. Cookie, 2. Keeping in the url.
+      2. Umjesto http:localhost:3000/products?locale=bs
+         Imas: http:localhost:3000/wk/products, to ces raditi u rutama.
+
+         scope ":locale" do
+          resources :products
+          root to: 'products#index'
+         end
+
+#################### RECAPTCHA #####################
+https://www.google.com/recaptcha/admin#whyrecaptcha
+
+To use reCAPTCHA, you need to sign up for API keys for your site. Unless you select the "global key" option, the keys are unique to your domain and sub-domains. (By default, all keys work on "localhost" (or "127.0.0.1"), so you can always develop and test on your local machine.)

@@ -1,0 +1,5 @@
+bs:
+  admin:
+    dashboard:
+      index:
+        main_header: "Dobrodošli na Admin::Dashboard."
