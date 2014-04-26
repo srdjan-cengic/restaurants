@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 	
 	attr_accessor :password # virtualni atribut, get & set za password
 	validates :password, confirmation: true # ovo ce automatski napravit get & set za password_confirmation
-	validates :password, length: { in: 8..20 }
+	validates :password, length: { in: 6..20 }
 
 	# By default, the validations run for both create and update. 
     # The :on key just allows you to choose one of them.
@@ -30,8 +30,8 @@ class User < ActiveRecord::Base
 	#########################################################################################################
 
 	def encrypt_password
-		puts "self.password: " + self.password # accessor method
-		puts "self.password_confirmation: " + self.password_confirmation
+		#puts "self.password: " + self.password # accessor method
+		#puts "self.password_confirmation: " + self.password_confirmation
 		# puts "self.password_salt: " + self.password_salt => ERROR: can't convert nil into String
 
 		# self is the instance inside of an instance method.
@@ -68,4 +68,6 @@ class User < ActiveRecord::Base
 		end
 
 	end
+
+	
 end

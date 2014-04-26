@@ -2,4 +2,7 @@ bs:
   admin:
     dashboard:
       index:
-        main_header: "Dobrodošli na Admin::Dashboard."
+        main_header: "Admin::Dashboard"
+        locale: "Lokalizacija"
+        current_user: "Trenutni korisnik:"
+        logout: "Odjava"

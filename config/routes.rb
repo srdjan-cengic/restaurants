@@ -5,6 +5,7 @@ RestaurantsBa::Application.routes.draw do
 
   namespace :admin do
     get 'dashboard', to: 'dashboard#index'
+    resources :users
   end
 
   resources :users
