@@ -1,54 +1,37 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" 
-      											  data-target="#bs-example-navbar-collapse-1">
+<head>
+   <title>Superadmin Dashboard</title>
+</head>
 
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
 
-      <%= link_to(image_tag("logo-navbar.png"), admin_dashboard_path) %> 
-    </div>
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <h1 class="page-header">Dashboard</h1>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      
-      <ul class="nav navbar-nav">
-        
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t ".locale" %> <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "English", locale: "en" %></li>
-			<li><%= link_to "Bosnian", locale: "bs" %></li>
-          </ul>
-        </li>
-      </ul>
+          <div class="row placeholders">
+            <div class="col-xs-6 col-sm-3 placeholder">
+              <div id="myfirstchart" style="height: 250px;">
+                <h4>Chart example 1</h4>
+              </div>   
+            </div>
+            
+          </div>
 
-      <ul class="nav navbar-nav navbar-right">
-      	<li><a href="#"> <%= t ".current_user" %> [<%= current_user.email %>] </a></li>
-        <li><%= link_to(t(".logout") , logout_path) %></li>
-      </ul>
-    </div>
+          <br><br>
 
-  </div>
-</nav>
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-3" id="myfirstchart" style="height: 250px;">
-		</div>
-
-		<div class="col-md-9">
-			<h3><%= t ".main_header" %></h3>
-
-			<%= @users_count %>
-			<%= @number_of_confirmed_users %>
-			<%= unconfirmed_users(@users_count, @number_of_confirmed_users) %>
-		</div>
-	</div>
+          <h2 class="sub-header">All Registered Users</h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><%= current_user.email %></td>
+                  <td><%= current_user.email %></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 </div>
-

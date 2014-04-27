@@ -1,0 +1,121 @@
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
+            <li><a data-toggle="tab" href="#editProfile">Edit Profile</a></li>
+            <li><a data-toggle="tab" href="#changePassword">Change password</a></li>
+          </ul>
+
+          <div class="tab-content">
+            <!--Profile informations -->
+            <div id="profile" class="tab-pane fade in active">
+                <br><br>
+                <div class="row placeholders">
+                  <div class="col-lg-4">
+                     <div class="col-sm-6 col-md-3">
+                          <div class="thumbnail">
+                             
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+
+
+                  <div class="col-lg-4">
+                    <div class="table-responsive">
+                    <table class="table table-striped" width="200">
+                      <thead>
+                        <tr>
+                          <th>Basic Informations</th>
+                          <th></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Name</td>
+                          <td>Martina</td>
+                        </tr>
+                        <tr>
+                          <td>Username</td>
+                          <td>AdminSuper</td>
+                        </tr>
+                        <tr>
+                          <td>Email</td>
+                          <td><%= current_user.email %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div> 
+            </div>
+
+            <!--Edit profile -->
+            <div id="editProfile" class="tab-pane fade">
+                <br><br>
+                <div class="row placeholders">
+                  <div class="col-lg-4">
+                     <div class="col-sm-6 col-md-3">
+                          <div class="thumbnail">
+                             <%= link_to(image_tag("logo.png"), admin_dashboard_path) %>
+                          </div>
+                          <div class="caption">
+                                <a href="#" class="btn btn-primary" role="button"> Upload picture</a> 
+                          </div>
+                       </div>
+                    </div>
+                  </div>
+
+                  <hr>
+
+                  <div class="col-lg-4">
+                    <form class="form-horizontal">
+                      <div class="form-group">
+                          <label for="inputName" class="control-label col-xs-2">Name</label>
+                          <div class="col-xs-10">
+                            <input type="name" class="form-control" id="inputName" placeholder="name">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputUsername" class="control-label col-xs-2">Username</label>
+                          <div class="col-xs-10">
+                            <input type="username" class="form-control" id="inputUsername" placeholder="username">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputEmail" class="control-label col-xs-2">Email</label>
+                          <div class="col-xs-10">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="<%= current_user.email %>">
+                          </div>
+                      </div>
+                                           
+                      <button type="submit" class="btn btn-primary ">OK</button>
+                  </form>
+                </div> 
+          </div>
+
+          <!--Change password -->
+            <div id="changePassword" class="tab-pane fade">
+                <br><br>
+         
+                  <div class="col-lg-4">
+                    <form>
+                      <div class="form-group">
+                          <label for="inputNewPassword">New Password</label>
+                          <input type="password" class="form-control" id="inputNewPassword" placeholder="Password">
+                      </div>
+
+                      <div class="form-group">
+                          <label for="inputConfirmPassword">Confirm Password</label>
+                          <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Password">
+                      </div>
+                      
+                      
+                      <button type="submit" class="btn btn-primary">Change</button>
+                  </form>
+                </div> 
+          </div>
+
+
+           
+          </div>
+            
+</div>

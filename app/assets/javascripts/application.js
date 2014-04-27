@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require docs.min
 //= require raphael
 //= require morris
 //= require turbolinks
 //= require_tree .
+
