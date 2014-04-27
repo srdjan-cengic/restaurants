@@ -52,3 +52,4 @@ gem "recaptcha", :require => "recaptcha/rails"
 
 # Heroku
 gem 'rails_12factor', group: :production
+gem "pg", :group => :production
