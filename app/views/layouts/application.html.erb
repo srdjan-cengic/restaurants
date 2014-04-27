@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Restaurants.ba</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application"%>
   <%= csrf_meta_tags %>
  	
  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,9 +13,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
- 	
- 	<!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="http://getbootstrap.com/examples/dashboard/dashboard.css" rel="stylesheet">
@@ -38,46 +35,6 @@
 	<% end %>
 
 	<%= yield %>
-
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <%= link_to(image_tag("logo-restaurants.png"), admin_dashboard_path) %>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a class="active" href="#">Dashboard</a></li>
-            <li><a href="#">Users</a></li>
-            <li><a href="#">Restaurants</a></li>
-            <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown"> <%= t ".current_user" %> <%= current_user.email %> </a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
-                <li><%= link_to(t(".logout") , logout_path) %></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      	<div class="row">
-	        <div class="col-sm-3 col-md-2 sidebar">
-	          <ul class="nav nav-sidebar">
-	            <li class="active"><a href="#">Statistics</a></li>
-	            <li><a href="#">Reports</a></li>
-	            <li><a href="#">Analytics</a></li>
-	          </ul>
-	        </div>
-
-      	</div>
-    </div>
 
 	
 </body>

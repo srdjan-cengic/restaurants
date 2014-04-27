@@ -16,6 +16,5 @@
 //= require docs.min
 //= require raphael
 //= require morris
-//= require turbolinks
 //= require_tree .
 
