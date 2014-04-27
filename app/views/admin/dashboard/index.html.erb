@@ -50,9 +50,11 @@
             <li><a class="active" href="#">Dashboard</a></li>
             <li><a href="#">Users</a></li>
             <li><a href="#">Restaurants</a></li>
-            <li class="dropdown"><a href="#"class="dropdown-toggle" data-toggle="dropdown"> <%= t ".current_user" %> <%= current_user.email %> </a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Logged in as <%= current_user.email %> <b class="caret"></b></a>
+
               <ul class="dropdown-menu">
-                <li><a href="#">Profile</a></li>
+                <li><%= link_to "Profile", admin_profile_path %></li>
                 <li><%= link_to(t(".logout") , logout_path) %></li>
               </ul>
             </li>
