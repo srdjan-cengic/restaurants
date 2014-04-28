@@ -10,4 +10,7 @@ class Admin::DashboardController < ApplicationController
   	@users_count = User.count
   	@number_of_confirmed_users = User.where(confirmed: true).count
   end
+
+  def profile
+  end
 end

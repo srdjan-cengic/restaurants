@@ -1,0 +1,10 @@
+<% if @user_updated %>
+	$('#adminTabs a:first').tab('show');
+	$('.admin-tab-notices').html("<%= j render partial: 'reset_password_status', 
+								                         locals: { notification: 'success' } %>");
+<% else %>
+	$('.password-tab-notices').html("<%= j render partial: 'reset_password_status', 
+		                                                   locals: { notification: 'danger' } %>");
+<% end %>  
+
+$('.reset-password input[type=password]').val("");

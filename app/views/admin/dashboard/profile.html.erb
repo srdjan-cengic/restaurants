@@ -6,7 +6,7 @@
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       
-      <ul class="nav nav-tabs">
+      <ul id="adminTabs" class="nav nav-tabs">
         <li class="active"><a data-toggle="tab" href="#profile">Profile</a></li>
         <li><a data-toggle="tab" href="#editProfile">Edit Profile</a></li>
         <li><a data-toggle="tab" href="#changePassword">Change password</a></li>
@@ -15,6 +15,9 @@
       <div class="tab-content">
         <!--Profile informations -->
         <div id="profile" class="tab-pane fade in active"><br>
+
+          <div class="admin-tab-notices"></div>
+
           <div class="row placeholders">
             <div class="col-lg-4">
               <div class="col-sm-6 col-md-3">
@@ -97,9 +100,11 @@
 
           <!--Change password -->
           <div id="changePassword" class="tab-pane fade"><br>
-              <div class="change-password-notices"></div>
+              <div class="password-tab-notices"></div>
+              <%= form_for [:admin, current_user], 
+                            remote: true,
+                            html: { class: "form-horizontal reset-password", role: "form" } do |f| %>
 
-              <%= form_for [:admin, current_user], html: { class: "form-horizontal", role: "form" } do |f| %>
                 <div class="form-group">
                   <div class="col-md-5">
                     <%= f.password_field :password, class: "form-control", placeholder: "password" %>
