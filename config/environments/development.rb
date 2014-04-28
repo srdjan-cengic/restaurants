@@ -1,6 +1,8 @@
 RestaurantsBa::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  ENV.update YAML.load(File.read(File.expand_path('../../application.yml', __FILE__)))
+
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -39,7 +41,7 @@ RestaurantsBa::Application.configure do
   #:enable_starttls_auto - Set this to false if there is a problem with your server certificate that you cannot resolve.
 
   # Specify what domain to use for mailer URLs
-  config.action_mailer.default_url_options = { host: "127.0.0.1", port: 3000 }
+  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
