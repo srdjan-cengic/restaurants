@@ -25,5 +25,6 @@ en:
       index:
         main_header: "Admin::Dashboard"
         locale: "Localization"
-        current_user: "Logged in as:"
+        current_user: "Logged in as"
         logout: "Logout"
+        users: "Users"

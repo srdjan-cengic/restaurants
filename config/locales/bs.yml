@@ -4,5 +4,6 @@ bs:
       index:
         main_header: "Admin::Dashboard"
         locale: "Lokalizacija"
-        current_user: "Trenutni korisnik:"
+        current_user: "Trenutni korisnik"
         logout: "Odjava"
+        users: "Korisnici"
