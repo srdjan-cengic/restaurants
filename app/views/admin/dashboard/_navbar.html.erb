@@ -1,0 +1,42 @@
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <%= link_to(image_tag("logo-restaurants.png"), admin_dashboard_path) %>
+    </div>
+    
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= t ".locale" %> <b class="caret"></b></a>
+          
+          <ul class="dropdown-menu">
+            <li><%= link_to "English", locale: "en" %></li>
+            <li><%= link_to "Bosnian", locale: "bs" %></li>
+          </ul>
+        </li> 
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Dashboard", admin_dashboard_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+            <%= t ".current_user"%> [<%= current_user.email %>]
+          <b class="caret"></b></a>
+
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile", admin_profile_path %></li>
+            <li><%= link_to(t(".logout"), logout_path) %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

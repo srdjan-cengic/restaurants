@@ -4,5 +4,5 @@
     You are just one step more from activating your account.
     Please confirm your registration through the following link: 
     <%= link_to "Click here to confirm registration", 
-    			confirmation_user_path(@user, code: @user.confirmation_code) %> 
+    			confirmation_user_url(@user, code: @user.confirmation_code), only_path: false %> 
 </p>
