@@ -2,6 +2,7 @@ class Admin::UsersController < ApplicationController
 	def index
 		render text: "Ok, index action"
 	end
+
 	
 	def update
 		user = User.find(params[:id])
