@@ -28,3 +28,8 @@ en:
         current_user: "Logged in as"
         logout: "Logout"
         users: "Users"
+    users:
+      index:
+        date:
+          formats:
+            default: "%m/%d/%Y"

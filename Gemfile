@@ -52,3 +52,10 @@ gem "recaptcha", :require => "recaptcha/rails"
 
 # Heroku
 gem 'rails_12factor', group: :production
+
+# Ember
+gem 'ember-rails'
+gem 'ember-source', '1.5.0' 
+
+# Serializer
+gem "active_model_serializers"

@@ -16,5 +16,16 @@
 //= require docs.min
 //= require raphael
 //= require morris
+//= require jquery
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require_tree ./admin
+//= require restaurants_ba
+
+// for more details see: http://emberjs.com/guides/application/
+RestaurantsBa = Ember.Application.create();
+
 //= require_tree .
 

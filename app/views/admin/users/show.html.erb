@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= l(@user.last_login.to_date) %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= l(@user.created_at.to_date) %>
+</p>
+
+<p>
+  <strong>Fb url:</strong>
+  <%= @user.confirmed %>
+</p>
+
+<%= link_to 'Edit', edit_admin_user_path(@user) %> |
+<%= link_to 'Back', admin_users_path %>

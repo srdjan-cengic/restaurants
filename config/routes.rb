@@ -1,16 +1,13 @@
 RestaurantsBa::Application.routes.draw do
 
-  resources :coupones
-
-  resources :restaurants
-
   get 'admin', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
 
   namespace :admin do
     get 'dashboard', to: 'dashboard#index'
     get 'profile', to: 'dashboard#profile'
-    get 'coupons', to: 'dashboard#coupons'
+    resources :restaurants
+    resources :coupones
     resources :users
   end
 

@@ -1,8 +1,16 @@
 class Admin::UsersController < ApplicationController
+	before_action :set_user, only: [:show, :edit, :update, :destroy]
+
 	def index
-		render text: "Ok, index action"
+		@users = User.all
 	end
 
+	def show
+	end
+
+	def edit
+
+	end
 	
 	def update
 		user = User.find(params[:id])
@@ -20,8 +28,21 @@ class Admin::UsersController < ApplicationController
 		end
 	end
 
+
+	def destroy
+	    @user.destroy
+	    respond_to do |format|
+	      format.html { redirect_to admin_users_url }
+	      format.json { head :no_content }
+	    end
+	end
+
 	private
 	def user_params
   		params.require(:user).permit(:password, :password_confirmation)
   	end
+
+  	def set_user
+      @user = User.find(params[:id])
+    end
 end

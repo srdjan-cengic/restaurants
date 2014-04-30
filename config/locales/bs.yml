@@ -1,4 +1,7 @@
 bs:
+  date:
+    formats:
+      default: "%m/%d/%Y"
   admin:
     dashboard:
       index:
@@ -7,3 +10,15 @@ bs:
         current_user: "Trenutni korisnik"
         logout: "Odjava"
         users: "Korisnici"
+    users:
+      index:
+        locale: "Lokalizacija"
+        datetime:
+          formats:
+            default: "%m/%d/%Y %H:%M"
+            short: "%H:%M"
+            notime: "%m/%d/%Y"
+        time:
+          formats:
+            default: "%m/%d/%Y %H:%M"
+            notime: "%m/%d/%Y"

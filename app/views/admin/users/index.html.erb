@@ -1,0 +1,52 @@
+<%= render "admin/dashboard/navbar" %>
+
+<div class="container-fluid">
+  <div class="row">
+    <%= render "admin/dashboard/sidebar" %>
+    
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">Dashboard</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+          <div id="myfirstchart" style="height: 250px;"></div>
+             
+        </div>
+      </div>
+
+      <div class="row">
+		<table>
+		  <thead>
+		    <tr>
+		      <th> Email </th>
+		      <th> Last login </th>
+		      <th> Account created at</th>
+		      <th> Confirmed?</th>
+		    </tr>
+		  </thead>
+
+		  <tbody>
+		    <% @users.each do |user| %>
+		      <tr>
+		        <td><%= user.email %></td>
+		        <td><%= l(user.last_login.to_date) %></td>
+		        <td><%= l(user.created_at.to_date) %></td>
+		        <td><%= user.confirmed %></td>
+		        <td><%= link_to 'Show', admin_user_path(user) %></td>
+		        <td><%= link_to 'Edit', edit_admin_user_path(user) %></td>
+		        <td><%= link_to 'Destroy', admin_user_path(user), 
+		        				 method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		      </tr>
+		    <% end %>
+		  </tbody>
+		</table>
+
+		<br>
+
+		<%= link_to 'New user', "#" %>
+
+      </div>
+
+    </div>
+  </div>
+</div>

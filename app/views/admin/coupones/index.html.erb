@@ -1,0 +1,43 @@
+<%= render "admin/dashboard/navbar" %>
+<div class="container-fluid">
+  
+
+  <div class="row">
+    <%= render "admin/dashboard/sidebar" %>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1>Listing coupones</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Number of available</th>
+            <th>Restaurant</th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @coupones.each do |coupone| %>
+            <tr>
+              <td><%= coupone.description %></td>
+              <td><%= coupone.number_of_available %></td>
+              <td><%= coupone.restaurant.name if coupone.restaurant  %></td>
+              <td><%= link_to 'Show', admin_coupone_path(coupone) %></td>
+              <td><%= link_to 'Edit', edit_admin_coupone_path(coupone) %></td>
+              <td><%= link_to 'Destroy', admin_coupone_path(coupone), 
+                                         method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <%= link_to 'New Coupone', new_admin_coupone_path %>
+    </div>
+  </div>
+</div>
