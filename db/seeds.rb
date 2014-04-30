@@ -48,5 +48,28 @@ restourant_list.each do |name, desc, telephone, fb, image|
 					  description: desc, 
 					  telephone: telephone, 
 					  fb_url: fb, 
-					  image: image)
+					  image: image,
+					  owner_id: (User.first.id..User.last.id).to_a.sample)
 end
+
+Coupone.delete_all
+Coupone.create(description: "10% na veceru za dvoje.", number_of_available: 10,
+	           restaurant_id: (Restaurant.first.id..Restaurant.last.id).to_a.sample,
+	           available_from: Time.now)
+
+Coupone.create(description: "10% na dorucak za jednu osobu.", number_of_available: 20,
+	           restaurant_id: (Restaurant.first.id..Restaurant.last.id).to_a.sample,
+	           available_from: Time.now)
+
+Coupone.create(description: "10% na veceru za dvoje.", number_of_available: 10,
+	           restaurant_id: (Restaurant.first.id..Restaurant.last.id).to_a.sample,
+	           available_from: Time.now, ends_at: 30.days.from_now)
+
+Coupone.create(description: "30% na jelo po izboru.", number_of_available: 5,
+	           restaurant_id: (Restaurant.first.id..Restaurant.last.id).to_a.sample,
+	           available_from: Time.now, ends_at: 10.days.from_now)
+
+Coupone.create(description: "Besplatan ulaz i jedna konzumacija.", number_of_available: 10,
+	           restaurant_id: (Restaurant.first.id..Restaurant.last.id).to_a.sample,
+	           available_from: Time.now, ends_at: Time.now + 10.days)
+

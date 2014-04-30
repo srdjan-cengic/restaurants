@@ -1,5 +1,7 @@
 RestaurantsBa::Application.routes.draw do
 
+  resources :coupones
+
   resources :restaurants
 
   get 'admin', to: 'sessions#new'
