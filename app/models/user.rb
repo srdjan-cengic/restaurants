@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 	
 	attr_accessor :password # virtualni atribut, get & set za password
 	validates :password, confirmation: true # ovo ce automatski napravit get & set za password_confirmation
-	validates :password, length: { in: 6..20 }
+	validates :password, length: { in: 6..20 }, on: :update, allow_blank: true
 
 	# By default, the validations run for both create and update. 
     # The :on key just allows you to choose one of them.

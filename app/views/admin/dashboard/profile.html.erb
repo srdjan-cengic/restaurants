@@ -31,22 +31,24 @@
           <div class="col-lg-4">
             <h4> Basic Informations </h4>
             <div class="table-responsive">
-              <table class="table table-striped">
-                <tbody>
-                  <tr>
-                    <td>Name</td>
-                    <td>Martina</td>
-                  </tr>
-                  <tr>
-                    <td>Username</td>
-                    <td>AdminSuper</td>
-                  </tr>
-                  <tr>
-                    <td>Email</td>
-                    <td><%= current_user.email %></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div id="update-container">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>Name</td>
+                      <td><%= current_user.name %></td>
+                    </tr>
+                    <tr>
+                      <td>Username</td>
+                      <td><%= current_user.username %></td>
+                    </tr>
+                    <tr>
+                      <td>Email</td>
+                      <td><%= current_user.email %></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div> 
         </div>
@@ -57,7 +59,7 @@
             <div class="col-lg-4">
               <div class="col-sm-6 col-md-3">
                 <div class="thumbnail">
-                  <%= link_to(image_tag("logo.png"), admin_dashboard_path) %>
+                  
                 </div>
                 
                 <div class="caption">
@@ -70,31 +72,33 @@
           <hr>
 
           <div class="col-lg-4">
-            <form class="form-horizontal">
+            <%= form_for [:admin, current_user], remote: true, html: { class: "form-horizontal update-user", role: "form"} do |f| %>
             
               <div class="form-group">
-                <label for="inputName" class="control-label col-xs-2">Name</label>
+                 <%= f.label :name, class: "control-label col-xs-2" %>
                 <div class="col-xs-10">
-                  <input type="name" class="form-control" id="inputName" placeholder="name">
+                  <%= f.text_field :name, class: "form-control", placeholder: "Enter new name" %><br>
                 </div>
               </div>
               
               <div class="form-group">
-                <label for="inputUsername" class="control-label col-xs-2">Username</label>
+                <%= f.label :username, class: "control-label col-xs-2" %>
                 <div class="col-xs-10">
-                  <input type="username" class="form-control" id="inputUsername" placeholder="username">
+                  <%= f.text_field :username, class: "form-control", placeholder: "Enter new username" %><br>
                 </div>
               </div>
                     
               <div class="form-group">
-                <label for="inputEmail" class="control-label col-xs-2">Email</label>
+                 <%= f.label :email, class: "control-label col-xs-2" %>
                 <div class="col-xs-10">
-                  <input type="email" class="form-control" id="inputEmail" placeholder="<%= current_user.email %>">
+                   <%= f.text_field :email, class: "form-control", placeholder: "Enter new email" %><br>
                 </div>
               </div>
-                                           
-              <button type="submit" class="btn btn-primary ">OK</button>
-            </form>
+                                        
+              <%= f.submit "Update informations", class: "btn btn-primary" %>
+            <% end %>
+
+            <div class="update-tab-notices"></div>
           </div> 
         </div>
 
