@@ -1,4 +1,10 @@
 <%= render "admin/dashboard/navbar" %>
+<style type="text/css">
+.table {
+  margin-left:-10px;
+}
+
+</style>
 <div class="container-fluid">
   <div class="row">
     <%= render "admin/dashboard/sidebar" %>
@@ -8,13 +14,12 @@
 
       <div class="row placeholders">
         <div class="col-xs-6 col-sm-3 placeholder">
-          <div id="myfirstchart" style="height: 250px;"></div>
+         
              
         </div>
       </div>
 
 <h1>Listing restaurants</h1>
-
 <table class="table table-striped">
   <thead>
     <tr>
@@ -39,16 +44,17 @@
         <td><%= restaurant.fb_url[0,15]+'...' %></td>
         <td><%= restaurant.image %></td>
         <td><%= User.find(restaurant.owner_id).email %></td>
-        <td><%= link_to 'show', admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> </td>
-        <td><%= link_to 'Show', admin_restaurant_path(restaurant) %> </td>
-        <td><%= link_to 'edit', edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> </td>
-        <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %></td>
+        <td><%= link_to 'show', admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+          <%= link_to 'Show', admin_restaurant_path(restaurant) %>
+        </td>
+        <td><%= link_to 'edit', edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+          <%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
+        </td>
         <td><%= link_to 'Destroy', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Restaurant', new_admin_restaurant_path %>
