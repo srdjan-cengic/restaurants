@@ -64,7 +64,7 @@ class Admin::RestaurantsController < ApplicationController
   def destroy
     @restaurant.destroy
     respond_to do |format|
-      format.html { redirect_to admin_restaurants_url }
+      format.html { redirect_to admin_restaurants_url, notice: 'Restaurant was successfully deleted.'  }
       format.json { head :no_content }
     end
   end

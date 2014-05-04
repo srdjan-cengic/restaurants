@@ -1,9 +1,4 @@
 <%= render "admin/dashboard/navbar" %>
-<style type="text/css">
-#description {
-  width: 500px;
-}
-</style>
 <div class="container-fluid">
   <div class="row">
     <%= render "admin/dashboard/sidebar" %>
@@ -24,7 +19,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th id="description">Description</th>
+      <th>Description</th>
       <th>Telephone</th>
       <th>Fb url</th>
       <th>Image</th>
@@ -44,11 +39,11 @@
         <td><%= restaurant.fb_url[0,15]+'...' %></td>
         <td><%= restaurant.image %></td>
         <td><%= User.find(restaurant.owner_id).email %></td>
-        <td><%= link_to 'show more', admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> </td>
+        <td><%= link_to 'show', admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> </td>
         <td><%= link_to 'Show', admin_restaurant_path(restaurant) %> </td>
-        <td><%= link_to 'edit modal', edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> </td>
+        <td><%= link_to 'edit', edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> </td>
         <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -63,6 +58,15 @@
 
 <div id="editModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
+
+<% if flash[:notice].present? %>
+   <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <li><%= flash[:notice] %></li>
+    </div>
+<% end %>
+
+
 
 </div>
 </div>
