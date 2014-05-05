@@ -1,0 +1,13 @@
+<% if @updated_user %>
+	$('#adminTabs a:first').tab('show');
+	$('.update-tab-notices').html("<%= j render partial: 'update_status', 
+								                         locals: { message: 'success' } %>");
+<% else %>
+	$('.update-tab-notices').html("<%= j render partial: 'update_status', 
+		                                                   locals: { message: 'danger' } %>");
+<% end %>  
+
+$('.update-user input[type=name]').val("");
+$('.update-user input[type=username]').val("");
+$('.update-user input[type=email]').val("");
+$(".profil").html("<%= j render(:partial => "profile") %>");

@@ -1,6 +1,26 @@
-<h1>Listing restaurants</h1>
+<%= render "admin/dashboard/navbar" %>
+<style type="text/css">
+.table {
+  margin-left:-10px;
+}
 
-<table>
+</style>
+<div class="container-fluid">
+  <div class="row">
+    <%= render "admin/dashboard/sidebar" %>
+    
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <h1 class="page-header">Dashboard</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+         
+             
+        </div>
+      </div>
+
+<h1>Listing restaurants</h1>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -19,19 +39,41 @@
     <% @restaurants.each do |restaurant| %>
       <tr>
         <td><%= restaurant.name %></td>
-        <td><%= restaurant.description %></td>
+        <td><%= restaurant.description[0,30]+'...' %></td>
         <td><%= restaurant.telephone %></td>
-        <td><%= restaurant.fb_url %></td>
+        <td><%= restaurant.fb_url[0,15]+'...' %></td>
         <td><%= restaurant.image %></td>
-        <td><%= restaurant.owner_id %></td>
-        <td><%= link_to 'Show', restaurant %></td>
-        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= User.find(restaurant.owner_id).email %></td>
+        <td><%= link_to 'show', admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+          <%= link_to 'Show', admin_restaurant_path(restaurant) %>
+        </td>
+        <td><%= link_to 'edit', edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+          <%= link_to 'Edit', edit_admin_restaurant_path(restaurant) %>
+        </td>
+        <td><%= link_to 'Destroy', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= link_to 'New Restaurant', new_admin_restaurant_path %>
+
+<div id="showModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<div id="editModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<% if flash[:notice].present? %>
+   <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <li><%= flash[:notice] %></li>
+    </div>
+<% end %>
+
+
+
+</div>
+</div>
+</div>

@@ -1,5 +1,16 @@
+<%= render "admin/dashboard/navbar" %>
+<div class="container-fluid">
+  
+
+  <div class="row">
+    <%= render "admin/dashboard/sidebar" %>
+
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+
+
 <h1>New restaurant</h1>
 
 <%= render 'form' %>
+</div>
 
-<%= link_to 'Back', restaurants_path %>
+<%= link_to 'Back', admin_restaurants_path %>
