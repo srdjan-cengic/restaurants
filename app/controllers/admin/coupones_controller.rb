@@ -1,4 +1,4 @@
-class Admin::CouponesController < ApplicationController
+class Admin::CouponesController < Admin::BaseController
   before_action :set_coupone, only: [:show, :edit, :update, :destroy]
 
   # GET /coupones
