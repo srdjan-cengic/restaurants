@@ -7,6 +7,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+Role.delete_all
+Role.create(name: "superadmin")
+Role.create(name: "storeadmin")
+Role.create(name: "user")
+
 User.delete_all
 
 File.open("./users_seed.txt") do |users|
@@ -14,16 +19,18 @@ File.open("./users_seed.txt") do |users|
     email, password, name, username = user.chomp.split("|")
 
     new_user = User.new(email: email, password: password, confirmed: true, 
-    	                last_login: Time.now, name: name, username: username, role_id: 3)
+    	                last_login: Time.now, name: name, username: username)
 
+    if new_user.email == "super.admin@gmail.com"
+    	new_user.role = Role.find_by_name("superadmin")
+    else
+    	new_user.role = Role.find_by_name("user")
+    end
+    
     new_user.save
 
   end
 end
-
-superadmin = User.find_by_email("super.admin@gmail.com")
-superadmin.role_id = 1
-superadmin.save
 
 Restaurant.delete_all
 
@@ -79,11 +86,6 @@ Coupone.create(description: "30% na jelo po izboru.", number_of_available: 5,
 Coupone.create(description: "Besplatan ulaz i jedna konzumacija.", number_of_available: 10,
 	           restaurant_id: (Restaurant.first.id..Restaurant.last.id).to_a.sample,
 	           available_from: Time.now, ends_at: Time.now + 10.days)
-
-Role.delete_all
-Role.create(name: "superadmin")
-Role.create(name: "storeadmin")
-Role.create(name: "user")
 
 
 
