@@ -3,4 +3,8 @@ class Restaurant < ActiveRecord::Base
 	has_many :coupones
 
 	validates :name, presence: true, uniqueness: true
+
+	def self.search(query)
+ 		where("name like ?", "%#{query}%")
+	end
 end

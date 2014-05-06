@@ -4,9 +4,18 @@ class Admin::RestaurantsController < Admin::BaseController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all
+    respond_to do |format|
+      if params[:search]
+        @restaurants = Restaurant.where("name LIKE ? OR description LIKE ? OR telephone LIKE ?", "%#{params[:search]}%","%#{params[:search]}%","%#{params[:search]}%");
+        format.js
+        format.html
+      else
+        @restaurants = Restaurant.all
+        format.js
+        format.html
+      end
+    end
   end
-
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
