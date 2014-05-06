@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :restaurant, foreign_key: "owner_id"
+	belongs_to :role
 	# Authentication logic inside User model(2 methods, encrypt_password, authenticate)
 	# WHY FROM SCRATCH? BECAUSE YOU WANT TO FULLY UNDERSTAN WHAT IS HAPPENING UNDER THE HOOD.
 	# You can prosiriti ovo sa:
@@ -67,7 +68,6 @@ class User < ActiveRecord::Base
 		else
 			nil
 		end
-
 	end
 
 	
