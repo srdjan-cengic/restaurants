@@ -11,18 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+ <div class="field">
+    <%= f.label :restaurant_id %><br>
+    <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
   </div>
-  <div class="field">
+
+   <div class="field">
     <%= f.label :number_of_available %><br>
     <%= f.number_field :number_of_available %>
   </div>
   <div class="field">
-    <%= f.label :restaurant_id %><br>
-    <%= f.number_field :restaurant_id %>
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
   </div>
+
+  
+
+
+</div>
+ 
+ 
+  
   <div class="actions">
     <%= f.submit %>
   </div>
