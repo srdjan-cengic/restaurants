@@ -1,0 +1,38 @@
+<%= form_for @vote do |f| %>
+  <% if @vote.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h4>
+
+      <ul>
+      <% @vote.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger">
+        <li><%= msg %></li>
+      </div>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :vote_type %><br>
+    <%= f.text_field :vote_type , class: "form-control"%>
+  </div>
+   <div class="field">
+    <%= f.label :restaurant_id %><br>
+    <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %>
+  </div>
+   <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.collection_select(:user_id, User.all, :id, :name) %>
+  </div>
+
+  <div class="action">
+    <%= f.submit %>
+  </div>
+
+  
+<% end %>
+
+
+
+

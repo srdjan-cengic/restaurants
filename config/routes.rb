@@ -1,5 +1,7 @@
 RestaurantsBa::Application.routes.draw do
 
+  resources :votes
+
   get 'admin', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
 
