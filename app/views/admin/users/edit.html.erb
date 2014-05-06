@@ -1,6 +1,28 @@
-<h1>Editing User</h1>
+<%= render "admin/dashboard/navbar" %>
 
-<%= render 'form' %>
+<div class="container-fluid">
+  <div class="row">
+    <%= render "admin/dashboard/sidebar" %>
+    
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+     
+      	<div class="row">
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', admin_users_path %>
+	      	<div class="panel panel-primary">
+	      		<div class="panel-heading">
+	      			 <h3 class="panel-title">Editing user</h3>
+	      		</div>
+	      		<div id="update-container">
+		      		<div class="col-lg-4">
+
+						<%= render 'form' %>
+
+						<%= link_to 'Show', admin_user_path(@user) %> |
+						<%= link_to 'Back', admin_users_path %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+</div>

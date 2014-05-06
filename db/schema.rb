@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140505203226) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "coupones", force: true do |t|
     t.string   "description"
     t.integer  "number_of_available"
