@@ -6,10 +6,35 @@ class Admin::UsersController < Admin::BaseController
 	end
 
 	def show
+		respond_to do |format|
+	      format.html
+	      format.js
+	    end
 	end
 
-	def edit
+	def create
+		@user = User.new(user_params)
 
+	    respond_to do |format|
+	      if @user.save
+	        format.html { redirect_to admin_users_path(@user), notice: 'User was successfully created.' }
+	        format.json { render action: 'show', status: :created, location: @user }
+	      else
+	        format.html { render action: 'new' }
+	        format.json { render json: @user.errors, status: :unprocessable_entity }
+	      end
+	    end
+	end
+
+	def new
+    	@user = User.new
+ 	 end
+
+	def edit
+		respond_to do |format|
+	      format.html
+	      format.js
+	    end
 	end
 	
 	def update
@@ -24,21 +49,20 @@ class Admin::UsersController < Admin::BaseController
 		end
 
 		respond_to do |format|
+			format.html { redirect_to admin_users_path(@user), notice: 'User was successfully updated.' }
 			format.js
 		end
 	end
 
 	def update_user
-		if !user.password.blank and !user.password_confirmation.blank
-			@updated_user = true
-			@messages_user = "Successfully updated at: " + Time.now.strftime("%d/%m/%Y %H:%M:%S")
-		else
-			@updated_user = false
-			@messages_user = "Update was not successfull"
-		end
-
 		respond_to do |format|
-			format.js
+			if !user.password.blank and !user.password_confirmation.blank
+				@updated_user = true
+				@messages_user = "Successfully updated at: " + Time.now.strftime("%d/%m/%Y %H:%M:%S")
+			else
+				@updated_user = false
+				@messages_user = "Update was not successfull"
+			end
 		end
 	end
 	
