@@ -11,29 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140505171750) do
-
-  create_table "coupones", force: true do |t|
-    t.string   "description"
-    t.integer  "number_of_available"
-    t.integer  "restaurant_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "available_from"
-    t.datetime "ends_at"
-  end
-
-  create_table "restaurants", force: true do |t|
-    t.string   "name",        null: false
-    t.text     "description"
-    t.string   "telephone"
-    t.string   "fb_url"
-    t.string   "image"
-    t.integer  "owner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "coupones", force: true do |t|
     t.string   "description"
