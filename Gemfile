@@ -59,3 +59,6 @@ gem 'ember-source', '1.5.0'
 
 # Serializer
 gem "active_model_serializers"
+
+#Carrierwave - for upload picture
+gem 'carrierwave'

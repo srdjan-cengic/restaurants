@@ -21,9 +21,9 @@
           <div class="row placeholders">
             <div class="col-lg-4">
               <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                             
-                </div>
+                <p>
+                  <%= image_tag(current_user.picture, :width => 200) if current_user.picture.present? %>
+                </p>                 
               </div>
             </div>
           </div>
@@ -55,24 +55,9 @@
 
         <!--Edit profile -->
         <div id="editProfile" class="tab-pane fade"><br>
-          <div class="row placeholders">
-            <div class="col-lg-4">
-              <div class="col-sm-6 col-md-3">
-                <div class="thumbnail">
-                  
-                </div>
-                
-                <div class="caption">
-                  <a href="#" class="btn btn-primary" role="button"> Upload picture</a> 
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr>
 
           <div class="col-lg-4">
-            <%= form_for [:admin, current_user], remote: true, html: { class: "form-horizontal update-user", role: "form"} do |f| %>
+            <%= form_for [:admin, current_user], remote: true, html: { class: "form-horizontal update-user", role: "form", :multipart => true}, :authenticity_token => true do |f| %>
             
               <div class="form-group">
                  <%= f.label :name, class: "control-label col-xs-2" %>
@@ -94,6 +79,11 @@
                    <%= f.text_field :email, class: "form-control", placeholder: "Enter new email" %><br>
                 </div>
               </div>
+
+              <%= f.label :picture, class: "control-label"  %><br>
+              <%= f.file_field :picture %>
+              <%= f.hidden_field :picture_cache %><br>
+
                                         
               <%= f.submit "Update informations", class: "btn btn-primary" %>
             <% end %>
