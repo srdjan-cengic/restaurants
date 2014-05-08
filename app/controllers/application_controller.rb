@@ -15,11 +15,12 @@ class ApplicationController < ActionController::Base
 
   def current_user
   	# We will set curent user as an instance variable so it does some caching
-  	if session[:user_id]
-  		@current_user ||= User.find(session[:user_id]) #much better performance
-  	else
-  		nil
-  	end
+  	#if session[:user_id]
+  	@current_user ||= User.find(session[:user_id]) if session[:user_id] #much better performance
+    rescue ActiveRecord::RecordNotFound
+  	#else
+  		#nil
+  	#end
   end
 
   def extract_locale_from_accept_language_header
