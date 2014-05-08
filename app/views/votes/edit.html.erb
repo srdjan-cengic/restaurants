@@ -6,8 +6,10 @@
     <%= render "admin/dashboard/sidebar" %>
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-<h1>New coupone</h1>
+
+<h1>Editing vote</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', admin_coupones_path %>
+<%= link_to 'Show', vote_path(@vote) %> |
+<%= link_to 'Back', vote_path %>

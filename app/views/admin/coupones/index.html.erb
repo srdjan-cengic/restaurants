@@ -8,12 +8,13 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <h1>Listing coupones</h1>
 
-      <table>
+      <table class="table">
         <thead>
           <tr>
-            <th>Description</th>
-            <th>Number of available</th>
             <th>Restaurant</th>
+            <th>Number of available</th>
+            <th>Description</th>
+            
             <th></th>
             <th></th>
             <th></th>
@@ -22,22 +23,39 @@
 
         <tbody>
           <% @coupones.each do |coupone| %>
-            <tr>
-              <td><%= coupone.description %></td>
-              <td><%= coupone.number_of_available %></td>
-              <td><%= coupone.restaurant.name if coupone.restaurant  %></td>
-              <td><%= link_to 'Show', admin_coupone_path(coupone) %></td>
-              <td><%= link_to 'Edit', edit_admin_coupone_path(coupone) %></td>
+           <td><%= coupone.restaurant.name if coupone.restaurant  %></td>
+           <td><%= coupone.number_of_available  %></td>
+           <td><%= coupone.description[0,30]+'...' %></td>
+           
+
+           <td><%= link_to 'show', admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+              <td><%= link_to 'edit', edit_admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
               <td><%= link_to 'Destroy', admin_coupone_path(coupone), 
-                                         method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                         method: :delete, data: { confirm: 'Are you sure?' }, 'class'=>'btn btn-danger' %></td>
             </tr>
+
+
           <% end %>
-        </tbody>
+        </tbody> 
       </table>
 
       <br>
+      
 
       <%= link_to 'New Coupone', new_admin_coupone_path %>
+      <div id="showModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<div id="editModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<% if flash[:notice].present? %>
+   <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <li><%= flash[:notice] %></li>
+    </div>
+<% end %>
+
     </div>
   </div>
 </div>

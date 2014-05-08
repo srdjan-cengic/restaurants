@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	has_one :restaurant, foreign_key: "owner_id"
+	has_many :votes, foreign_key: "user_id" 
 	belongs_to :role
 	# Authentication logic inside User model(2 methods, encrypt_password, authenticate)
 	# WHY FROM SCRATCH? BECAUSE YOU WANT TO FULLY UNDERSTAN WHAT IS HAPPENING UNDER THE HOOD.
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
 	# confirmed with "_confirmation" appended. You should use confirmation helper when you have two 
 	# text fields that should receive exactly the same content.
 	
-	attr_accessor :password # virtualni atribut, get & set za password
+	attr_accessor :password, :picture_cache # virtualni atribut, get & set za password
 	validates :password, confirmation: true # ovo ce automatski napravit get & set za password_confirmation
 	validates :password, length: { in: 6..20 }, on: :update, allow_blank: true
 
@@ -31,6 +32,10 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true
 	#########################################################################################################
 
+
+	mount_uploader :picture, PictureUploader
+
+	
 	def encrypt_password
 		#puts "self.password: " + self.password # accessor method
 		#puts "self.password_confirmation: " + self.password_confirmation

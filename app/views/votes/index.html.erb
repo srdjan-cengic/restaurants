@@ -1,0 +1,66 @@
+
+<%= render "admin/dashboard/navbar" %> 
+<div class="container-fluid">
+ <div class="row"> 
+  <%= render "admin/dashboard/sidebar" %> 
+  <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+     <h1 class="page-header">Dashboard</h1>
+
+      <div class="row placeholders">
+        <div class="col-xs-6 col-sm-3 placeholder">
+         
+             
+        </div>
+      </div>
+
+<h1>Listing votes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Vote type</th>
+      <th>Restaurant</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.vote_type %></td>
+        <td><%= Restaurant.find(vote.restaurant_id).name %></td>
+        <td><%= User.find(vote.user_id).name %></td>
+
+        <td><%= link_to 'show', vote_path(vote),  {:remote => true ,'class'=>'btn btn-info'}  %>
+        <td><%= link_to 'edit', edit_vote_path(vote),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+        <td><%= link_to 'destroy', vote_path(vote), method: :delete, data: { confirm: 'Are you sure?' }, 'class'=>'btn btn-danger'  %></td>
+     </tr>
+          <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<div id="showModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<div id="editModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+</div>
+
+<% if flash[:notice].present? %>
+   <div class="alert alert-success alert-dismissable">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <li><%= flash[:notice] %></li>
+    </div>
+<% end %>
+
+
+
+</div>
+</div>
+</div>
+
