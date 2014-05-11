@@ -22,5 +22,5 @@ RestaurantsBa::Application.routes.draw do
   end
 
   resources :sessions
-  root :to => "home#index"
+  root :to => "application#index"
 end

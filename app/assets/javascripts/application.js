@@ -6,7 +6,6 @@
 //
 // It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
 // compiled file.
-//
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
@@ -16,15 +15,13 @@
 //= require docs.min
 //= require raphael
 //= require morris
-//= require jquery
 //= require handlebars
 //= require ember
 //= require ember-data
-//= require_tree ./admin
+
+//= require_self
 //= require restaurants_ba
 
 // for more details see: http://emberjs.com/guides/application/
 RestaurantsBa = Ember.Application.create();
-
-//= require_tree . 
 
