@@ -10,7 +10,11 @@ class SessionsController < ApplicationController
   		session[:user_id] = user.id
 
       user.update_column(:last_login, Time.now)
-  		redirect_to admin_dashboard_url
+      respond_to do |format|
+        format.html redirect_to admin_dashboard_url
+        format.json { render json: { session: user.as_json(only: :email) }, status: :created }
+      end
+  		
   	else
   		# The flash is a special part of the session which is cleared with each request. 
   		# This means that values stored there will only be available in the next request, 

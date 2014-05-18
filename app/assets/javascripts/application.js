@@ -23,5 +23,7 @@
 //= require restaurants_ba
 
 // for more details see: http://emberjs.com/guides/application/
-RestaurantsBa = Ember.Application.create();
+RestaurantsBa = Ember.Application.create({
+	LOG_TRANSITIONS: true
+});
 
