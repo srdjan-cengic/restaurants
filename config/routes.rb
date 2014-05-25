@@ -25,6 +25,7 @@ RestaurantsBa::Application.routes.draw do
 
   namespace :api do
     resources :users, except: [:new, :edit], defaults: {format:'json'}
+    resources :restaurants
   end
 
 end
