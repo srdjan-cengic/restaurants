@@ -11,6 +11,15 @@
   
   <div class="col-md-6 registration-form-holder">
     <div class="well">
+
+      {{#if errors.length}}
+        <div class="errors">
+          {{#each errors}}
+            <p> {{ this }} </p>
+          {{/each}}
+        </div>
+      {{/if}}
+      
       <form role="form">
         <div class="form-group">
           <label for="username">Choose username</label>
