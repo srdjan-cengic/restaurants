@@ -2,10 +2,10 @@ RestaurantsBa.RestaurantsController = Ember.ObjectController.extend({
 	actions: {
 		allRestaurants: function(){
 			$.ajax({
-				url: "restaurants",
+				url: "api/restaurants",
 				type: "GET",
 				success: function(data) {
-					alert("Svi kreirani restorani.");
+					console.log("SUCCESS", data);
 				}
 			});
 		}
