@@ -7,6 +7,6 @@ RestaurantsBa.RegistrationRoute = Ember.Route.extend({
 		//  Ember.js automatically sets the controller's content to the 
 		// return value of the model hook in the route.
 		controller.set("content", model);
-		controller.set("errorMsg", "");
+		controller.set("errors", []);
 	}
 });

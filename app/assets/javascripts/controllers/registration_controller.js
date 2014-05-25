@@ -16,9 +16,14 @@ RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 					console.log("SUCCESS", data);
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
-					//{"errors":{"password_confirmation":["doesn't match Password"]}} 
-					console.log(jqXHR.responseText);
-					self.set("errorMsg", jqXHR.responseText);
+					// Takes a well-formed JSON string and returns the resulting JavaScript object.
+					console.log(jqXHR.responseText); // => {"users":["Password confirmation doesn't match Password"]} 
+					
+					// Object { users: Array[1]}, a taj jedini je: 0: "Password confirmation doesn't match Password"
+					console.log($.parseJSON(jqXHR.responseText).users);
+
+					self.set("errors", $.parseJSON(jqXHR.responseText).users);
+					self.transitionToRoute('registration');
 				}
 			});
 		},
