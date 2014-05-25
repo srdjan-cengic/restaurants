@@ -14,6 +14,9 @@ RestaurantsBa::Application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+
+  resources :coupones
+
   resources :users do
     member do
       get 'confirmation'
