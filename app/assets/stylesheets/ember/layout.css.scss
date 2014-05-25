@@ -1,5 +1,4 @@
 body { 
-	background: #f0f0f0;
 }
 
 .navbar-inverse {
@@ -14,3 +13,18 @@ body {
 .nav-pills>li[data-slide-to="1"].active a { background-color: #ab1a25; }
 .nav-pills>li[data-slide-to="2"].active a { background-color: #037e8c; }
 .nav-pills>li[data-slide-to="3"].active a { background-color: #ff8a00; }
+
+.registration-msg {
+	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #f0f0f0;
+	margin-bottom: 10px;
+}
+.registration-description {
+    h4 { text-align: center; }
+}
+.registration-form-holder {
+	.control-label {
+		font-weight: normal;
+	}
+}
