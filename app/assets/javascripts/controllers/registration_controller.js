@@ -1,20 +1,29 @@
 RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 	actions: {
 		register: function() {
-			console.log(this.get("username"));
+			var self = this;
+
 			$.ajax({
-				url: "users",
+				url: "api/users",
 				type: "POST",
 				data: {
-					"user[email]": this.content.email,
-					"user[password]": this.content.password,
-					"user[password_confirmation]": this.content.password_confirmation,
-					"user[username]": this.content.username
+					"user[email]": this.get("email"),
+					"user[password]": this.get("password"),
+					"user[password_confirmation]": this.get("password_confirmation"),
+					"user[username]": this.get("username")
 				},
 				success: function(data) {
-					alert("srleeeeee");
+					console.log("SUCCESS", data);
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					//{"errors":{"password_confirmation":["doesn't match Password"]}} 
+					console.log(jqXHR.responseText);
+					self.set("errorMsg", jqXHR.responseText);
 				}
 			});
+		},
+		anotherAction: function() {
+
 		}
 	}
 });

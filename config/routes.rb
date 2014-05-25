@@ -1,5 +1,4 @@
 RestaurantsBa::Application.routes.draw do
-
   resources :votes
 
   get 'admin', to: 'sessions#new'
@@ -23,4 +22,9 @@ RestaurantsBa::Application.routes.draw do
 
   resources :sessions
   root :to => "application#index"
+
+  namespace :api do
+    resources :users, except: [:new, :edit], defaults: {format:'json'}
+  end
+
 end
