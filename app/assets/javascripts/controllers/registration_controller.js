@@ -1,3 +1,7 @@
+// Ember.ObjectController is part of Ember's Controller layer. 
+// It is intended to wrap a single object, proxying unhandled attempts to get and set 
+// to the underlying content object, and to forward unhandled action attempts to its target.
+
 RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 	actions: {
 		register: function() {
@@ -21,9 +25,7 @@ RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 					
 					// Object { users: Array[1]}, a taj jedini je: 0: "Password confirmation doesn't match Password"
 					console.log($.parseJSON(jqXHR.responseText).users);
-
 					self.set("errors", $.parseJSON(jqXHR.responseText).users);
-					self.transitionToRoute('registration');
 				}
 			});
 		},
