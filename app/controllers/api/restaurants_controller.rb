@@ -142,7 +142,11 @@ class Api::RestaurantsController < ApplicationController
       		ApiKey.exists?(access_token: token)
       	end
       end
+<<<<<<< HEAD
 end
 
 #The @Consumes annotation is used to specify which MIME media types of representations a resource can accept, or consume, from the client. 
 #The @Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client.
+=======
+end
+>>>>>>> 49689a01175899dea6ebd984e7e50f85eb21ea2a

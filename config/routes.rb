@@ -14,6 +14,9 @@ RestaurantsBa::Application.routes.draw do
 
   resources :users, only: [:new, :create]
 
+
+  resources :coupones
+
   resources :users do
     member do
       get 'confirmation'
@@ -25,7 +28,7 @@ RestaurantsBa::Application.routes.draw do
 
   namespace :api do
     resources :users, except: [:new, :edit], defaults: {format:'json'}
-    resources :restaurants
+    resources :restaurants, defaults: {format:'json'}
   end
 
 end
