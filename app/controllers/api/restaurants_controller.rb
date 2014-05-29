@@ -112,7 +112,7 @@ class Api::RestaurantsController < ApplicationController
 
 	private
 	  def restaurant_params
-	    @permitted = params.require(:restaurant).permit(:id, :name, :description, :telephone, :fb_page, :video_url)
+	    @permitted = params.require(:restaurant).permit(:id, :name, :description, :telephone, :fb_url, :image)
 	  end
 
 	  def check_method

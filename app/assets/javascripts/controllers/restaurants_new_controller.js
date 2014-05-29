@@ -12,6 +12,7 @@ RestaurantsBa.RestaurantsNewController = Ember.ObjectController.extend({
 					"restaurant[description]": this.get("description"),
 					"restaurant[telephone]": this.get("telephone"),
 					"restaurant[fb_url]": this.get("fb_url"),
+					"restaurant[image]": this.get("image"),
 					"restaurant[owner_id]": this.get("owner_id")
 				},
 				success: function(data) {
