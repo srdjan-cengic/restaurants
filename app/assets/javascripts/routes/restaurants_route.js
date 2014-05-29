@@ -1,6 +1,8 @@
 RestaurantsBa.RestaurantsRoute = Ember.Route.extend({
 	model : function(){
-        var restaurants = this.store.all('restaurant');
-        return restaurants;
+		return this.store.find('restaurant');
+    },
+    setupController: function(controller, model) {
+    	controller.set("content", model);
     }
 });
