@@ -74,6 +74,18 @@ $(document).ready( function() {
                 </div>
             </div>
             <!-- End Item -->
+            <div class="item">
+                <img src="http://placehold.it/1200x700/408ac9/ffffff&text=Registration">
+                <div class="carousel-caption">
+                        <h3>
+                            Login or Register for an account?
+                        </h3>
+
+                        <a class="btn btn-clear btn-sm btn-min-block" href="#">Login</a>
+                        {{#link-to 'registration' classNames="btn btn-clear btn-sm btn-min-block"}}Register{{/link-to}}
+                </div>
+            </div>
+            <!-- End Item -->
         </div>
         <!-- End Carousel Inner -->
         <ul class="nav nav-pills nav-justified">
@@ -81,6 +93,7 @@ $(document).ready( function() {
             <li data-target="#myCarousel" data-slide-to="1"><a href="#">Restaurants</a></li>
             <li data-target="#myCarousel" data-slide-to="2"><a href="#">Coupons</a></li>
             <li data-target="#myCarousel" data-slide-to="3"><a href="#">Join us</a></li>
+            <li data-target="#myCarousel" data-slide-to="4"><a href="#">Registration</a></li>
         </ul>
     </div>
     <!-- End Carousel -->

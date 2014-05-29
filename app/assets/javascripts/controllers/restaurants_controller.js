@@ -1,13 +1,14 @@
-RestaurantsBa.RestaurantsController = Ember.ObjectController.extend({
+RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
+	nazivKontrolera: "RestaurantsController",
 	actions: {
 		allRestaurants: function(){
-			$.ajax({
-				url: "restaurants",
+			/*$.ajax({
+				url: "api/restaurants",
 				type: "GET",
 				success: function(data) {
-					alert("Svi kreirani restorani.");
+					console.log("SUCCESS", data);
 				}
-			});
+			});*/
 		}
 	}
 });
