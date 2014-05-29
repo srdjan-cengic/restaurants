@@ -6,7 +6,7 @@ RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 	actions: {
 		register: function() {
 			var self = this;
-
+			console.log("IZZZ", this.content);
 			$.ajax({
 				url: "api/users",
 				type: "POST",
@@ -17,7 +17,7 @@ RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 					"user[username]": this.get("username")
 				},
 				success: function(data) {
-					console.log("SUCCESS", data);
+					self.transitionToRoute('index');
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 					// Takes a well-formed JSON string and returns the resulting JavaScript object.

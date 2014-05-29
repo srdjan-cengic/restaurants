@@ -1,7 +1,5 @@
 class Api::UsersController < ApplicationController
   #respond_to in conjuction with respond_with
-
-
   respond_to :json
 
   def index
