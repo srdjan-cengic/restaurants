@@ -143,3 +143,6 @@ class Api::RestaurantsController < ApplicationController
       	end
       end
 end
+
+#The @Consumes annotation is used to specify which MIME media types of representations a resource can accept, or consume, from the client. 
+#The @Produces annotation is used to specify the MIME media types or representations a resource can produce and send back to the client.
