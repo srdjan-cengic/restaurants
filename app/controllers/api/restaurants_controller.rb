@@ -60,7 +60,7 @@ class Api::RestaurantsController < ApplicationController
 			format.any(:json, :xml) {
 				#The bang versions (e.g. save!) raise an exception if the record is invalid.
 				restourant = Restaurant.new(@permitted)
-				
+
 				begin
 					restourant.save!
 				rescue ActiveRecord::RecordInvalid
@@ -112,7 +112,7 @@ class Api::RestaurantsController < ApplicationController
 
 	private
 	  def restaurant_params
-	    @permitted = params.require(:restaurant).permit(:id, :name, :description, :telephone, :fb_page, :video_url)
+	    @permitted = params.require(:restaurant).permit(:id, :name, :description, :telephone, :fb_url, :image)
 	  end
 
 	  def check_method

@@ -1,3 +1,5 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :description, :fb_url, :telephone
+
+  attributes :id, :name, :description
 end
+
