@@ -1,12 +1,22 @@
-<h1>Pregled Kupona</h1>
-{{#each controller}}
-<p>Opis Kupona: </p>
-<p>
-	{{ this.description }}
-</p>
-<p>Preostali broj kupona</p>
-<p>
-	{{ this.number_of_available}}
-</p>
-<br>
-{{/each}}
+<div class="container">
+
+    <div class="row">
+		
+	        <h1 class="text-center">Coupones</h1>
+
+			{{#each controller}}
+			<div class="col-xs-18 col-sm-6 col-md-3">
+	          <div class="thumbnail">
+	            <img src="http://placehold.it/500x300" alt="">
+	              <div class="caption">
+	                
+	                <p>Description: {{ this.description }}</p>
+	                <p>Number of available coupones: {{ this.number_of_available}}</p>
+	            </div>
+	          </div>
+	        </div>
+			
+			{{/each}}
+		
+	</div>
+</div>
