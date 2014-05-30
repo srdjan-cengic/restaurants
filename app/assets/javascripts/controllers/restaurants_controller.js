@@ -2,13 +2,19 @@ RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
 	nazivKontrolera: "RestaurantsController",
 	actions: {
 		allRestaurants: function(){
-			/*$.ajax({
-				url: "api/restaurants",
-				type: "GET",
+		},
+		vote: function(restaurant_id) {
+			$.ajax({
+				type: "POST",
+				url: "api/votes",
+				data: {
+					restaurant_id: restaurant_id
+				},
 				success: function(data) {
-					console.log("SUCCESS", data);
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
 				}
-			});*/
+			});
 		}
 	}
 });
