@@ -1,6 +1,13 @@
 <div class="container">
-            {{view Em.TextField valueBinding="search" id="search_name" class="form-control"}}
-         <input {{action 'search'}} type="submit" class="btn btn-primary" value="Search">
+    
+          
+        <header>
+  {{input type="text" value=search action="query"}}
+</header>
+
+{{outlet}}
+
+
 
 	
 
