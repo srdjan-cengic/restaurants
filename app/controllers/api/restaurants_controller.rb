@@ -19,7 +19,11 @@ class Api::RestaurantsController < ApplicationController
 	# Respond to also allows you to specify a common block for different formats by using any:
 	respond_to :json, :xml
 
-	def index
+	 # GET /restaurants
+    # GET /restaurants.json
+
+
+    def index
 	  respond_to do |format|
 	    format.any(:json, :xml) {
 	      restaurants = Restaurant.all
@@ -33,6 +37,17 @@ class Api::RestaurantsController < ApplicationController
 	    }
 	  end
 	end
+
+	def search_by_word
+    # http://localhost:3000/api/posts/search_by_word.xml?title=Dijete
+    @restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
+                 
+
+    respond_with(@restaurant)
+  end
+
+
+	
 
 	def show
 	  respond_to do |format|

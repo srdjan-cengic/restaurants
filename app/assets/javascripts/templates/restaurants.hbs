@@ -1,8 +1,11 @@
 <div class="container">
+            {{view Em.TextField valueBinding="search" id="search" class="form-control"}}
+         <button type="button" class="btn btn-default btn-lg btn-block"> Search </button>sss
 	
     <div class="row">
 		<div class="well">
         <h1 class="text-center">Restaurants</h1>
+
         <div class="list-group">
         	{{#each }}
           <a href="#" class="list-group-item ">
@@ -22,7 +25,7 @@
                     
                 </div>
                 <div class="col-md-3 text-center">
-                    <h2> 1 <small> votes </small></h2>
+                    <h2>  <small> votes </small></h2>
                     <button type="button" class="btn btn-default btn-lg btn-block"> Vote Now! </button>
                     <div class="stars">
                         <span class="glyphicon glyphicon-star"></span>
