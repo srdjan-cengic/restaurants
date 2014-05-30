@@ -1,10 +1,10 @@
 <div class="container">
-
+    
     <div class="row">
 		<div class="well">
         <h1 class="text-center">Restaurants</h1>
         <div class="list-group">
-        	{{#each }}
+        	{{#each controller}}
           <a href="" class="list-group-item ">
                 <div class="media col-md-3">
                     <figure class="pull-left">
@@ -21,7 +21,10 @@
                 </div>
                 <div class="col-md-3 text-center">
                     <h2> 1 <small> votes </small></h2>
-                    <button type="button" class="btn btn-success btn-lg btn-block"> Vote Now! </button>
+
+                    <button type="button" class="btn btn-success btn-lg btn-block" {{action "vote" id}}>
+                        Vote Now!
+                    </button>
                     <br>
                     <p> <small> Telephone: {{this.telephone}} </small> </p>
                 </div>

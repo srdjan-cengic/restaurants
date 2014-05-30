@@ -7,7 +7,7 @@ RestaurantsBa.Router.map(function() {
      });
 
     this.resource("restaurants_new");
-    
+    this.resource("maps");
     this.resource("coupones", {
         path: "/coupones"
     }, function() {
