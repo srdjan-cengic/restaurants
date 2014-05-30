@@ -86,3 +86,13 @@ a.list-group-item.active small {
 .stars {
     margin:20px auto 1px;    
 }
+
+.thumbnail {
+    position: relative;
+    padding: 0px;
+    margin-bottom: 20px;
+}
+
+.thumbnail img {
+    width: 100%;
+}
