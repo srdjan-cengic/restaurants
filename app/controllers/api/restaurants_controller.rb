@@ -37,11 +37,12 @@ class Api::RestaurantsController < ApplicationController
 	    }
 	  end
 	end
-
-	def search_by_word
-    # http://localhost:3000/api/posts/search_by_word.xml?title=Dijete
-    @restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
-                 
+# http://localhost:3000/api/posts/search_by_word.xml?title=Dijete
+    
+	def search
+		if params[:search]
+  			  @restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
+         end 
 
     respond_with(@restaurant)
   end
