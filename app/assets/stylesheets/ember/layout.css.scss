@@ -76,3 +76,21 @@
     width: 1024px;
     height: 768px;
 }
+
+.login-header {
+  margin-top: 10px;
+  text-align: center;
+}
+.login-form-holder {
+  border-bottom: 1px solid #e0e0e0;
+
+  .login-errors {
+    border-bottom: 2px solid #C00000;
+    margin-bottom: 10px;
+    color: #700000;
+    font-weight: bold;
+  }
+}
+.login-footer {
+  text-align: center;
+}
