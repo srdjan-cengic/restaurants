@@ -1,38 +1,32 @@
 <div class="container">
-    
-    <div class="row">
-		<div class="well">
-        <h1 class="text-center">Restaurants</h1>
-        <div class="list-group">
-        	{{#each controller}}
-          <a href="" class="list-group-item ">
-                <div class="media col-md-3">
-                    <figure class="pull-left">
-                         <img class="media-object img-rounded img-responsive"  src="http://www.anguilla-beaches.com/image-files/luxury-anguilla-restaurants-2.jpg" alt="placehold.it/450x350" >
-                    </figure>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="list-group-item-heading"> {{this.name}}</h4>
-                    <p class="list-group-item-text"> {{this.description}}
-                    	<br>
+   <h1 class="text-center">Restaurants</h1>
 
-                    </p>
-                    
+    <section class="col-xs-12 col-sm-6 col-md-12">
+        {{#each controller}}
+            <article class="search-result row">
+                <div class="col-xs-12 col-sm-12 col-md-3">
+                    <a href=""><img src="http://www.anguilla-beaches.com/image-files/luxury-anguilla-restaurants-2.jpg" height="140" width="250"/></a>
                 </div>
-                <div class="col-md-3 text-center">
-                    <h2>  <small> votes </small></h2>
 
-                    <button type="button" class="btn btn-success btn-lg btn-block" {{action "test" id}}>
+                <div class="col-xs-12 col-sm-12 col-md-2">
+                    <ul class="meta-search">
+                        <li><i class="glyphicon glyphicon-home"></i> <span>Address</span></li>
+                        <li><i class="glyphicon glyphicon-phone-alt"></i> <span>{{telephone}}</span></li>
+                        <li><img src="https://ws.peterpanbus.com/purchase/images/facebook.png" height="18" width="18"/> <span>
+                                  <a {{bind-attr href="fb_url"}}>{{name}}</a></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
+                    <h3>{{#link-to "restaurant"}}{{name}}{{/link-to}}</h3>
+                    <p>{{description}}</p>
+                    <button type="button" class="btn btn-success btn-lg" {{action "vote" id}}>
                         Vote Now!
-                    </button>
-                    <br>
-                    <p> <small> Telephone: {{this.telephone}} </small> </p>
+                    </button>                     
                 </div>
-          </a>
-           {{/each}}
-                  </div>
-        </div>
-	</div>
-
-	{{outlet}}   
+                <span class="clearfix borda"></span>
+            </article>
+            <hr>
+        {{/each}}
+    </section>
 </div>
