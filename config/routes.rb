@@ -1,5 +1,4 @@
 RestaurantsBa::Application.routes.draw do
-  resources :votes
 
   get 'admin', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
@@ -31,6 +30,7 @@ RestaurantsBa::Application.routes.draw do
     resources :restaurants, defaults: {format:'json'}
     resources :coupones, defaults:{format: 'json'}
     resources :sessions, only: [:create, :destroy], defaults: {format: 'json'}
+    resources :votes, defaults: {format: 'json'}
   end
 
 end

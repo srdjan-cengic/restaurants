@@ -1,13 +1,14 @@
 RestaurantsBa.CouponesController = Ember.ArrayController.extend({
+    nazivKontrolera: "Coupones Controller",
     actions: {
-        AllCoupones: function() {
-            $.ajax({
-                url: "coupones",
+        allRestaurants: function() {
+            /*$.ajax({
+                url: "api/restaurants",
                 type: "GET",
                 success: function(data) {
-                    alert("Svi kuponi su tu");
+                    console.log("SUCCESS", data);
                 }
-            });
+            });*/
         }
     }
 });

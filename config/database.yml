@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: restaurants-ba_development
   pool: 5
-  username: <%= ENV['POSTGRES_USERNAME'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  username: postgres
+  password: kraljica
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: restaurants-ba_production
   pool: 5
-  username: <%= ENV['POSTGRES_HEROKU_USERNAME'] %>
-  password: <%= ENV['POSTGRES_HEROKU_PASSWORD'] %>
+  username: postgres
+  password: kraljica
