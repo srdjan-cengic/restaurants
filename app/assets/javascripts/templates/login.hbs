@@ -1,0 +1,39 @@
+<div class="login-header">
+	<img src="assets/logo-white.png"></img>
+	<h4> Log in to continue </h4>
+</div>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 login-form-holder">
+		<div class="well">
+			{{#if isFailed}}
+				<div class="login-errors">
+					<p> Incorrect email or password entered. </p>
+				</div>
+			{{/if}}
+			<form role="form" class="clearfix">
+		        <div class="form-group">
+		          <label for="email">Email</label>
+		          {{view Em.TextField valueBinding="email" id="email" class="form-control" 
+		                              placeholder="user@example.com"}}
+		        </div>
+
+		        <div class="form-group">
+		          <label for="password">Password</label>
+		          {{view Ember.TextField valueBinding="password" type="password" id="password" 
+		                                 class="form-control"}}
+		        </div>
+
+		        <div class="form-group">
+		          <input {{action 'login'}} type="submit" class="btn btn-primary col-md-12" value="Login">
+		        </div>
+      		</form>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 login-footer">
+		<h5> Find place to eat and grab your coupones! <h5>
+	</div>
+</div>
