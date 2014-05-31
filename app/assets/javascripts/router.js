@@ -9,7 +9,7 @@ RestaurantsBa.Router.map(function() {
         this.route("new");
      });
 
-    this.resource('restaurant', { path: '/restaurants/:id' });
+    //this.resource('restaurant', { path: '/restaurants/:id' });
     this.resource("restaurants_new");
     this.resource("maps");
     

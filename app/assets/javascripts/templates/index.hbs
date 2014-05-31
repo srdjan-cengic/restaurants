@@ -81,7 +81,7 @@ $(document).ready( function() {
                             Login or Register for an account?
                         </h3>
 
-                        <a class="btn btn-clear btn-sm btn-min-block" href="#">Login</a>
+                        {{#link-to 'login' classNames="btn btn-clear btn-sm btn-min-block"}}Login{{/link-to}}
                         {{#link-to 'registration' classNames="btn btn-clear btn-sm btn-min-block"}}Register{{/link-to}}
                 </div>
             </div>

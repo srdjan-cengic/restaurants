@@ -18,7 +18,7 @@
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
-                    <h3>{{#link-to "restaurant"}}{{name}}{{/link-to}}</h3>
+                    <h3>{{#link-to "restaurant" this}}{{name}}{{/link-to}}</h3>
                     <p>{{description}}</p>
                     <button type="button" class="btn btn-success btn-lg" {{action "vote" id}}>
                         Vote Now!
