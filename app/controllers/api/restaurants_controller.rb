@@ -22,7 +22,8 @@ class Api::RestaurantsController < ApplicationController
 	 # GET /restaurants
     # GET /restaurants.json
 
-def index
+
+ def index
 	  respond_to do |format|
 	    format.any(:json, :xml) {
 	      restaurants = Restaurant.all
@@ -40,11 +41,21 @@ def index
 # http://localhost:3000/api/posts/search_by_word.xml?title=Dijete
     
 	def search
+		respond_to do |format|
+	    format.any(:json, :xml) {
 		if params[:name]
-  			  @restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
+  			  restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
+
+  			   if restaurants.empty? 
+		    head :not_found
+		    return
+		  end
+
          end 
 
-    respond_with(@restaurants)
+    respond_with restaurants, status: :ok 
+     }
+	  end
   end
 
 
@@ -53,6 +64,8 @@ def index
 	def show
 	  respond_to do |format|
 		format.any(:json, :xml) {
+
+
 		  begin
 		    # something which might raise an exception
 			restaurant = Restaurant.find(params[:id])
