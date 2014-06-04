@@ -4,18 +4,22 @@
 		
 	        <h1 class="text-center">Coupones</h1>
 
-			{{#each controller}}
+			{{#each item in controller}}
 			<div class="col-xs-18 col-sm-6 col-md-3">
 	          <div class="thumbnail">
 	            <img src="http://placehold.it/500x300" alt="">
 	              <div class="caption">
 	                
-	                <p>Description: {{ this.description }}</p>
-	                <p>Number of available coupones: {{ this.number_of_available}}</p>
+	                <p>Description: {{ item.description }}</p>
+	                <p>Number of available coupones: {{ item.number_of_available}}</p>
+	                <p> Restoran : {{ item.restaurant.name}}
 	            </div>
 	          </div>
 	        </div>
-			
+	        <p>
+
+	        </p>
+	        	
 			{{/each}}
 		
 	</div>
