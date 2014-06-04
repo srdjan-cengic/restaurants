@@ -41,9 +41,7 @@ class Api::RestaurantsController < ApplicationController
 # http://localhost:3000/api/posts/search_by_word.xml?title=Dijete
     
 	def search
-		respond_to do |format|
-	    format.any(:json, :xml) {
-		if params[:name]
+		
   			  restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
 
   			   if restaurants.empty? 
@@ -51,11 +49,10 @@ class Api::RestaurantsController < ApplicationController
 		    return
 		  end
 
-         end 
+         
 
     respond_with restaurants, status: :ok 
-     }
-	  end
+    
   end
 
 
@@ -78,6 +75,23 @@ class Api::RestaurantsController < ApplicationController
 		  respond_with restaurant, status: :ok
 		}
 	  end
+	end
+
+	def restaurant_with_owner
+	 
+
+
+		  begin
+		    # something which might raise an exception
+			@restaurants = Restaurant.where("owner_id = ? ", params[:owner_id]);
+		  rescue ActiveRecord::RecordNotFound
+		    head :not_found
+			return
+			
+		  end
+
+		  respond_with @restaurants, status: :ok
+	
 	end
 
 	# Be aware of: 
