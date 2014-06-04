@@ -22,8 +22,7 @@ class Api::RestaurantsController < ApplicationController
 	 # GET /restaurants
     # GET /restaurants.json
 
-
-    def index
+def index
 	  respond_to do |format|
 	    format.any(:json, :xml) {
 	      restaurants = Restaurant.all
@@ -37,14 +36,15 @@ class Api::RestaurantsController < ApplicationController
 	    }
 	  end
 	end
+    
 # http://localhost:3000/api/posts/search_by_word.xml?title=Dijete
     
 	def search
-		if params[:search]
+		if params[:name]
   			  @restaurants = Restaurant.where("name LIKE ?", "%#{params[:name]}%");
          end 
 
-    respond_with(@restaurant)
+    respond_with(@restaurants)
   end
 
 
