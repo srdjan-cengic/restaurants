@@ -3,6 +3,7 @@ RestaurantsBa.RestaurantsRoute = Ember.Route.extend({
 		return this.store.find('restaurant');
     },
     search: function() {
+    	dzenida ="dzenisa";
 			var self = this;
 			console.log("IZZZ", this.content);
 			$.ajax({
