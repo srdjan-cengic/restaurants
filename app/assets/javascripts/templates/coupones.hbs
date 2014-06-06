@@ -2,9 +2,9 @@
 
     <div class="row">
 		
-	        <h1 class="text-center">Coupones</h1>
+        <h1 class="text-center">Coupones</h1>
 
-			{{#each item in controller}}
+		{{#each item in controller}}
 			<div class="col-xs-18 col-sm-6 col-md-3">
 	          <div class="thumbnail">
 	            <img src="http://placehold.it/500x300" alt="">
@@ -12,15 +12,15 @@
 	                
 	                <p>Description: {{ item.description }}</p>
 	                <p>Number of available coupones: {{ item.number_of_available}}</p>
-	                <p> Restoran : {{ item.restaurant.name}}
+	                <p> Restaurant : {{ item.restaurant.name}}
 	            </div>
 	          </div>
 	        </div>
 	        <p>
 
 	        </p>
-	        	
-			{{/each}}
+        	
+		{{/each}}
 		
 	</div>
 </div>
