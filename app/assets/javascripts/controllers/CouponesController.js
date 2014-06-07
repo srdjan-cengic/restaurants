@@ -14,15 +14,16 @@ RestaurantsBa.CouponesController = Ember.ArrayController.extend({
             if (window.confirm("Are you sure you want to delete this coupon?")) {
 
                 var coupone_id = coupone.get('id');
+                var controller = this;
 
                 $.ajax({
                     type: "DELETE",
                     url: "api/coupones/" + coupone_id + "/",
-                    success: function() {
-                        this.transitionToRoute("coupones");
+                    success : function(data) {          
+                        controller.removeObject(coupone);                    
                     }, 
                     error: function() {
-                        alert("delete failed");
+                        alert("Delete failed");
                     }             
                 });
             }
