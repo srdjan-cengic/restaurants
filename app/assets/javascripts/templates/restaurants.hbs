@@ -1,10 +1,9 @@
 <div class="container">
 
-    {{view Em.TextField valueBinding="naziv" id="naziv" class="form-control" 
-                                    }}
-                                    <div class="form-group">
-                  <input {{action 'all' }} type="submit" class="btn btn-primary col-md-12" value="Search">
-                </div>
+    {{view Em.TextField valueBinding="naziv" id="naziv" class="form-control" }}
+    <div class="form-group">
+        <input {{action 'all' }} type="submit" class="btn btn-primary col-md-12" value="Search">
+    </div>
 
    <h1 class="text-center">Restaurants</h1>
 
@@ -20,8 +19,8 @@
                     <ul class="meta-search">
                         <li><i class="glyphicon glyphicon-home"></i> <span>Address</span></li>
                         <li><i class="glyphicon glyphicon-phone-alt"></i> <span>{{telephone}}</span></li>
-                        <li><img src="https://ws.peterpanbus.com/purchase/images/facebook.png" height="18" width="18"/> <span>
-                                  <a {{bind-attr href="fb_url"}}>{{name}}</a></span>
+                        <li><i class="glyphicon glyphicon-link"></i><span>
+                        <a {{bind-attr href="fb_url"}}>{{name}}</a></span>
                         </li>
                     </ul>
                 </div>

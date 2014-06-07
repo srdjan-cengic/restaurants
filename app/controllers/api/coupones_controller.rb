@@ -39,13 +39,21 @@ class Api::CouponesController < ApplicationController
   # POST /coupones
   # POST /coupones.json
   def create
-    @coupon = Coupone.new(coupone_params)
+    respond_to do |format|
+      format.any(:json, :xml) {
+        #The bang versions (e.g. save!) raise an exception if the record is invalid.
+        coupon = Coupone.new(@permitted)
 
-    if @coupon.save
-      respond_with @coupon, status: 201, location: api_coupone_url(@coupon)
-    else
-      @errors = @coupon.errors.full_messages # Array stringova
-      render json: @errors, status: 422
+        begin
+          coupon.save!
+        rescue ActiveRecord::RecordInvalid
+          head :bad_request
+          return
+        end
+
+        head :created
+        return
+      }
     end
   end
 
