@@ -1,5 +1,17 @@
 RestaurantsBa.CouponesController = Ember.ArrayController.extend({
-    nazivKontrolera: "Coupones Controller",
+    
+
+    content: [],
+  filter: "",
+  filteredContent: function() {
+    var filter = this.get('filter');
+    
+    return this.get('content').filter(function(item, index, enumerable){
+      return item.get('description').toLowerCase().match(filter.toLowerCase());
+    });
+  }.property('filter', 'content.@each'),
+
+
     actions: {
         allRestaurants: function() {
             /*$.ajax({

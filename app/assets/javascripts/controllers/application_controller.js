@@ -4,7 +4,7 @@ RestaurantsBa.ApplicationController = Ember.Controller.extend({
 	actions: {
 		logout: function() {
 			this.get("controllers.auth").setCurrentUser();
-			this.transitionToRoute("index");
+             this.transitionToRoute("index");
 		}
 	}
 });

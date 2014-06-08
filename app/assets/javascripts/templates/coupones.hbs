@@ -1,10 +1,14 @@
 <div class="container">
 
+
     <div class="row">
+    	 
+  <span>Search: </span>{{view Ember.TextField valueBinding=filter}}
+  
 		
         <h1 class="text-center">Coupones</h1>
 
-		{{#each item in controller}}
+		{{#each item in filteredContent}}
 			<div class="col-xs-18 col-sm-6 col-md-3">
 	          <div class="thumbnail">
 	            <img src="assets/buy-your-meal.png" alt="">

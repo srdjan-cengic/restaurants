@@ -21,8 +21,12 @@
         <ul class="dropdown-menu"> 
           <li>{{#link-to "restaurants"}} Show Restaurants {{/link-to}}</li>
           {{#if isLoggedIn}}
+            <li>{{#link-to "my_restaurant"}}Show my restaurant{{/link-to}}</li>
+          {{/if}}
+          {{#if isLoggedIn}}
             <li>{{#link-to "restaurants_new"}}Create new restaurant{{/link-to}}</li>
           {{/if}}
+          
         </ul>
       </li>
         
