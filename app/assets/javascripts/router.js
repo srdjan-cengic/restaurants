@@ -6,6 +6,7 @@ RestaurantsBa.Router.map(function() {
     this.route("login");
     this.route("profil");
     this.route("my_restaurant");
+    this.route("edit_restaurant");
 
     this.resource("restaurants", function() {
         this.resource("restaurant", {
