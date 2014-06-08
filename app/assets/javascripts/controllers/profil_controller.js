@@ -10,6 +10,6 @@ RestaurantsBa.ProfilController = Ember.Controller.extend({
     setCurrentUser: function(user) {
         if (typeof user === "undefined") this.set("currentUser", null);
         else this.set("currentUser", user);
-    },
+    }
 
 });
