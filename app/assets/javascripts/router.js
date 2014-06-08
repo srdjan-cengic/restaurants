@@ -3,6 +3,7 @@ RestaurantsBa.Router.map(function() {
     // the template that is render when we visit localhost:3000/#/registration
     this.route("registration");
     this.route("login");
+    this.route("favourites");
     
     this.resource("restaurants", function() {
         this.resource("restaurant", { 'path' : '/:restaurant_id'});

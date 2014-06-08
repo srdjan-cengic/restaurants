@@ -8,6 +8,7 @@
 RestaurantsBa.LoginController = Ember.Controller.extend({
 	needs: ["auth"],
 	isFailed: false,
+	
 	actions: {
 		login: function() {
 			var self = this;
