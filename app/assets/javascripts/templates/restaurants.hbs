@@ -1,11 +1,23 @@
 <div class="container">
 
     
-  <span>Search: </span>{{view Ember.TextField valueBinding=filter}}
-  <ul>
-     </ul>
-   <h1 class="text-center">Restaurants</h1>
-
+    <br>
+ 
+    <h1 class="text-center">Restaurants</h1><br>
+    <h4 class="text-center"> Your new favorite restaurant is out there – go ahead, dig in! </h4>
+    <br>
+ 
+    <div class="input-group">
+        
+        {{view Em.TextField valueBinding="filter" type="search" class="form-control" placeholder="Search" }}
+        <span class="input-group-addon">
+            <i class="glyphicon glyphicon-search"></i>
+        </span>
+    </div>
+  
+    <br>
+    <hr class="colorgraph">
+    <br>
 
     <section class="col-xs-12 col-sm-6 col-md-12">
         {{#each item in filteredContent}}
