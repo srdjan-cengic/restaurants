@@ -7,5 +7,8 @@ RestaurantsBa.Restaurant = DS.Model.extend({
 
   nekaFunkcija: function() {
   	return "neka bussines logika!?";
-  }
+  },
+  imagePath: function() {
+    return "/assets/"+this.get("image");
+  }.property('image')
 });

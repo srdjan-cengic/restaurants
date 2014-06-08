@@ -1,6 +1,7 @@
 class Api::CouponesController < ApplicationController
-  #before_action :set_coupone, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_coupone, only: [:show, :edit, :update, :destroy]
+  #before_filter :coupone_params, only: [:create, :update]
+  
   # GET /coupones
   # GET /coupones.json
  
@@ -38,16 +39,21 @@ class Api::CouponesController < ApplicationController
   # POST /coupones
   # POST /coupones.json
   def create
-    @coupone = Coupone.new(coupone_params)
-
     respond_to do |format|
-      if @coupone.save
-        format.html { redirect_to admin_coupone_path(@coupone), notice: 'Coupone was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @coupone }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @coupone.errors, status: :unprocessable_entity }
-      end
+      format.any(:json, :xml) {
+        #The bang versions (e.g. save!) raise an exception if the record is invalid.
+        coupon = Coupone.new(@permitted)
+
+        begin
+          coupon.save!
+        rescue ActiveRecord::RecordInvalid
+          head :bad_request
+          return
+        end
+
+        head :created
+        return
+      }
     end
   end
 
@@ -83,6 +89,6 @@ class Api::CouponesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coupone_params
-      params.require(:coupone).permit(:description, :number_of_available, :restaurant_id)
+      @permitted = params.require(:coupone).permit(:id, :description, :number_of_available, :restaurant_id, :available_from, :ends_at)
     end
 end

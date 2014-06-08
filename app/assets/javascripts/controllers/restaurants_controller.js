@@ -1,7 +1,30 @@
 RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
-	nazivKontrolera: "RestaurantsController",
+	content: [],
+  filter: "",
+  filteredContent: function() {
+    var filter = this.get('filter');
+    
+    return this.get('content').filter(function(item, index, enumerable){
+      return item.get('name').toLowerCase().match(filter.toLowerCase());
+    });
+  }.property('filter', 'content.@each'),
+
 	actions: {
-		allRestaurants: function(){
+		all: function(){
+
+			$.ajax({
+				type: "GET",
+				url: "api/restaurants/search.json?name="+this.get("naziv"),
+				data: {
+					
+				},
+				success: function() {
+					this.transitionToRoute("coupones");
+					
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+				}
+			});
 		},
 		vote: function(restaurant_id) {
 			$.ajax({
@@ -11,6 +34,7 @@ RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
 					restaurant_id: restaurant_id
 				},
 				success: function(data) {
+
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 				}

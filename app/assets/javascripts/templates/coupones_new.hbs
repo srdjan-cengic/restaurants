@@ -1,0 +1,60 @@
+<div class="container">    
+    <div style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <div class="panel-title">Add coupone for your restaurant !</div>
+            </div>     
+
+            <div style="padding-top:30px" class="panel-body">
+
+                <form id="loginform" class="form-horizontal" role="form">
+                            
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-list-alt"></i>
+                        </span>
+                        {{view Ember.TextField valueBinding="description" type="text" id="description" class="form-control input-xlarge" placeholder="Enter description of coupon"}}                                       
+                    </div>
+                        
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-folder-open"></i>
+                        </span>
+                        {{view Ember.TextField valueBinding="number_of_available" type="text" id="number_of_available" class="form-control input-xlarge" placeholder="Number of available"}}
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </span>
+                        {{view Ember.TextField valueBinding="available_from" type="text" id="available_from" class="form-control input-xlarge" placeholder="Available from"}}
+                    </div>
+
+                    <div style="margin-bottom: 25px" class="input-group">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </span>
+                        {{view Ember.TextField valueBinding="ends_at" type="text" id="ends_at" class="form-control input-xlarge" placeholder="Ends at"}}
+                    </div>
+                            
+                        
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12 controls">
+                            <input type="submit" {{action 'create'}} class="btn btn-primary btn-block">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
+                                Best Deal. Every Meal! <br><br>
+                                <center><img src="assets/coupons-free.png"/></center>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>                     
+            </div>
+        </div>
+    </div>  
+</div>

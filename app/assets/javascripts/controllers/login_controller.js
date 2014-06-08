@@ -9,25 +9,29 @@ RestaurantsBa.LoginController = Ember.Controller.extend({
 	needs: ["auth"],
 	isFailed: false,
 	
-	actions: {
-		login: function() {
-			var self = this;
+    actions: {
+        login: function() {
+            var self = this;
 
-			$.ajax({
-				type: "POST",
-				url: "api/sessions",
-				data: {
-					email: this.get("email"),
-					password: this.get("password")
-				},
-				success: function(data) {
-					self.get("controllers.auth").setCurrentUser(data);
-					self.transitionToRoute("restaurants");
-				},
-				error: function(jqXhr, textStatus, errorThrown) {
-					self.set("isFailed", true);
-				}
-			});
-		}
-	}
+            $.ajax({
+                type: "POST",
+                url: "api/sessions",
+                data: {
+                    email: this.get("email"),
+                    password: this.get("password")
+                },
+                success: function(data) {
+                    self.get("controllers.auth").setCurrentUser(data);
+                    self.get("controllers.profil").setCurrentUser(data);
+                    self.transitionToRoute("restaurants");
+                },
+                error: function(jqXhr, textStatus, errorThrown) {
+                    self.set("isFailed", true);
+                }
+            });
+        }
+    },
+    getLoggedUser: function() {
+        return this.get("controllers.auth").getCurrentUser;
+    }
 });

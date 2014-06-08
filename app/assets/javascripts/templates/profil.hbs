@@ -1,0 +1,51 @@
+<div class="login-header">
+	<img src="assets/logo-white.png"></img>
+	<h4> Edit Profile </h4>
+</div>
+
+<div class="row">
+	<div class="col-md-4 col-md-offset-4 login-form-holder">
+		<div class="well">
+			{{#if isFailed}}
+				<div class="login-errors">
+					<p> Incorrect email or password entered. </p>
+				</div>
+			{{/if}}
+
+			<form role="form" class="clearfix">
+
+		        <div class="form-group">
+		          <label for="email">Email</label>
+		          {{view Em.TextField valueBinding="currentUser.email" id="email" class="form-control" 
+		                              placeholder="user@example.com"}}
+		        </div>
+
+		        <div class="form-group">
+         			<label for="password">Password</label>
+          			{{view Ember.TextField valueBinding="password" type="password" id="password" class="form-control"}}
+         			 <p class="help-block">at least 6 chars</p>
+     		   </div>
+
+		        <div class="form-group">
+		          <label for="password_confirmation">Confirm Password</label>
+		          {{view Ember.TextField valueBinding="password_confirmation" type="password" id="password_confirmation" class="form-control"}}
+		        </div>
+
+		         <div class="form-group">
+		          <label for="username">Choose username</label>
+		          {{view Em.TextField valueBinding="currentUser.username" id="username" class="form-control"}}
+        		</div>
+
+        		   <div class="form-group">
+		          <label for="username">Enter Name</label>
+		          {{view Em.TextField valueBinding="currentUser.name" id="username" class="form-control"}}
+        		</div>
+       		<div class="form-group">
+		          <input {{action 'save'}} type="submit" class="btn btn-primary col-md-12" value="save">
+		        </div>
+      		</form>
+      		
+		</div>
+	</div>
+</div>
+

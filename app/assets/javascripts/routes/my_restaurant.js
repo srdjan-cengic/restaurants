@@ -1,6 +1,6 @@
-RestaurantsBa.RestaurantsRoute = Ember.Route.extend({
+RestaurantsBa.MyRestaurantRoute = Ember.Route.extend({
 	model : function(){
-		return this.store.find('restaurant');
+		return this.store.find('restaurant',2);
     },
    
     setupController: function(controller, model) {
