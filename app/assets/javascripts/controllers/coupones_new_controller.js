@@ -25,7 +25,7 @@ RestaurantsBa.CouponesNewController = Ember.ObjectController.extend({
 				}
 
 			});
-			this.transitionToRoute('coupones')
+			this.transitionToRoute('coupones');
 		}
 	}
 });
