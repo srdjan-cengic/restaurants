@@ -28,9 +28,13 @@ RestaurantsBa::Application.routes.draw do
   namespace :api do
     resources :users, except: [:new, :edit], defaults: {format:'json'}
     resources :restaurants, defaults: {format:'json'} do
-     collection do
+      collection do
         get 'search', 'restaurant_with_owner'
       end
+      member do
+        get 'by_owner_id'
+      end
+
     end
     resources :coupones, defaults:{format: 'json'}
     resources :sessions, only: [:create, :destroy], defaults: {format: 'json'}

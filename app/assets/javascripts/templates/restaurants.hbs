@@ -23,7 +23,7 @@
         {{#each item in filteredContent}}
             <article class="search-result row">
                 <div class="col-xs-12 col-sm-12 col-md-3">
-                    <img {{bind-attr src="imagePath"}} height="180" width="280">
+                    <img {{bind-attr src=item.imagePath}} height="180" width="280">
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-2">

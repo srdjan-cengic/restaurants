@@ -5,7 +5,7 @@ class Api::SessionsController < ApplicationController
   	if user
   		session[:user_id] = user.id
   		user.update_column(:last_login, Time.now)
-
+      
   		render json: user, status: 200
 	  else
   		# "403: I know what you want, but I won't do that"

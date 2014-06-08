@@ -21,14 +21,14 @@
     <div class="row">
     	 
 		{{#each item in filteredContent}}
-			<div class="col-xs-18 col-sm-6 col-md-3">
+			<div class="col-xs-6 col-sm-6 col-md-3">
 	          <div class="thumbnail">
 	            <img src="assets/buy-your-meal.png" alt="">
 	              <div class="caption">
 	                
 	                <p><b>Description:</b> {{ item.description }}</p>
 	                <p>Number of available coupones: <font color="red"><b>{{ item.number_of_available}}</b></font></p>
-	                <p>Restaurant: <font color="blue"><b>{{ item.restaurant.name}}</b></font></p>
+	                <p>Restaurant: <font color="blue"><b>{{item.restaurant.name}}</b></font></p>
 	                <p> </p>
 	            </div>
 	          </div>

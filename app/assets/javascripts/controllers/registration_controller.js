@@ -6,7 +6,7 @@ RestaurantsBa.RegistrationController = Ember.ObjectController.extend({
 	actions: {
 		register: function() {
 			var self = this;
-			console.log("IZZZ", this.content);
+
 			$.ajax({
 				url: "api/users",
 				type: "POST",
