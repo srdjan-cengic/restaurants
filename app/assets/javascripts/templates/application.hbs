@@ -55,28 +55,6 @@
 
         {{else}}
           <li class="dropdown">
-
-            {{#if isLoggedIn}}
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Your account <b class="caret"></b>
-              </a>
-
-              <ul class="dropdown-menu">
-                <li>{{#link-to "registration"}} Profile {{/link-to}}</li>
-                <li>{{#link-to "favourites"}} Your favs {{/link-to}}</li>
-                <li><a href="#" {{action "logout"}}> Logout </a></li>
-              </ul>
-            {{else}}
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Registration <b class="caret"></b>
-              </a>
-
-              <ul class="dropdown-menu">
-                <li>{{#link-to "registration"}} Sign up {{/link-to}}</li>
-                <li>{{#link-to "login"}} Login {{/link-to}}</li>
-              </ul>
-            {{/if}}
-
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
              <i class="glyphicon glyphicon-tags"></i>  Coupons <b class="caret"></b>
             </a>
