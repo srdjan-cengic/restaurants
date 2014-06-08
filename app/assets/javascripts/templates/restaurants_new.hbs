@@ -1,60 +1,60 @@
 <div class="container">
-        <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Create profile of your own restaurant!<small> It's free!</small></h3>
+    <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Create profile of your own restaurant!<small> It's free!</small></h3>
+        </div>
+        <hr class="colorgraph">
+        <div class="panel-body">
+ 
+          <form role="form">
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  {{view Ember.TextField valueBinding="name" type="text" id="name" class="form-control input-xlarge" placeholder="Name"}}
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  {{view Ember.TextField valueBinding="owner" type="text" id="owner" class="form-control input-xlarge" placeholder="Owner"}}
+                </div>
+              </div>
             </div>
-            <hr class="colorgraph">
-            <div class="panel-body">
-     
-              <form role="form">
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      {{view Ember.TextField valueBinding="name" type="text" id="name" class="form-control input-xlarge" placeholder="Name"}}
-                    </div>
-                  </div>
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      {{view Ember.TextField valueBinding="owner" type="text" id="owner" class="form-control input-xlarge" placeholder="Owner"}}
-                    </div>
-                  </div>
-                </div>
-                <br>
+            <br>
 
-                <div class="form-group">
-                  {{view Ember.TextField valueBinding="description" type="textarea" id="description" class="form-control input-xlarge" placeholder="Describe your restaurant"}}
-                </div>
-                <br>
-
-                <div class="form-group">
-                  {{view Ember.TextField valueBinding="fb_url" type="text" id="fb_url" class="form-control input-xlarge" placeholder="Enter facebook page"}}
-                </div>
-                <br>
-
-                <div class="row">
-                  <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                      {{view Ember.TextField valueBinding="telephone" type="text" id="telephone" class="form-control input-xlarge" placeholder="Telephone"}}
-                    </div>
-                  </div>
-                </div>
-                <br>
-
-                <div class="form-group">
-                  {{view Ember.TextField valueBinding="image" type="file" id="imagebutton" class="input-file"}}
-                </div>
-                <br>
-
-                <hr class="colorgraph">    
-
-                <input type="submit" {{action 'create'}} class="btn btn-primary btn-block">
-              
-              </form>
-
+            <div class="form-group">
+              {{view Ember.TextField valueBinding="description" type="textarea" id="description" class="form-control input-xlarge" placeholder="Describe your restaurant"}}
             </div>
-          </div>
+            <br>
+
+            <div class="form-group">
+              {{view Ember.TextField valueBinding="fb_url" type="text" id="fb_url" class="form-control input-xlarge" placeholder="Enter facebook page"}}
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  {{view Ember.TextField valueBinding="telephone" type="text" id="telephone" class="form-control input-xlarge" placeholder="Telephone"}}
+                </div>
+              </div>
+            </div>
+            <br>
+
+            <div class="form-group">
+              {{view Ember.TextField valueBinding="image" type="file" id="imagebutton" class="input-file"}}
+            </div>
+            <br>
+
+            <hr class="colorgraph">    
+
+            <input type="submit" {{action 'create'}} class="btn btn-primary btn-block">
+          
+          </form>
+
         </div>
       </div>
     </div>
+  </div>
+</div>
