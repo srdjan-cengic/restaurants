@@ -17,7 +17,7 @@
                   </div>
                   <div class="col-xs-6 col-sm-6 col-md-6">
                     <div class="form-group">
-                      {{view Ember.TextField valueBinding="owner" type="text" id="owner" class="form-control input-xlarge" placeholder="Owner"}}
+                      
                     </div>
                   </div>
                 </div>
@@ -26,7 +26,8 @@
                 <div class="form-group">
                   {{view Ember.TextField valueBinding="description" type="textarea" id="description" class="form-control input-xlarge" placeholder="Describe your restaurant"}}
                 </div>
-                <br>
+                <br>{
+
 
                 <div class="form-group">
                   {{view Ember.TextField valueBinding="fb_url" type="text" id="fb_url" class="form-control input-xlarge" placeholder="Enter facebook page"}}
@@ -46,10 +47,10 @@
                   {{view Ember.TextField valueBinding="image" type="file" id="imagebutton" class="input-file"}}
                 </div>
                 <br>
+                
 
                 <hr class="colorgraph">    
-
-                <input type="submit" {{action 'create'}} class="btn btn-primary btn-block">
+ <input {{action 'edit' id}} type="submit" class="btn btn-primary col-md-12" value="edit"/>
               
               </form>
 

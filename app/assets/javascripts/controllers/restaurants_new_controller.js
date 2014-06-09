@@ -1,5 +1,6 @@
 RestaurantsBa.RestaurantsNewController = Ember.ObjectController.extend({
-
+	needs: ["auth"],
+	user: Em.computed.alias("controllers.auth.currentUser"),
 	actions: {
 		create: function() {
 			var self = this;
@@ -13,7 +14,7 @@ RestaurantsBa.RestaurantsNewController = Ember.ObjectController.extend({
 					"restaurant[telephone]": this.get("telephone"),
 					"restaurant[fb_url]": this.get("fb_url"),
 					"restaurant[image]": this.get("image"),
-					"restaurant[owner_id]": this.get("owner_id")
+					"restaurant[owner_id]": this.get("user").id
 				},
 				success: function(data) {
 					console.log("SUCCESS", data);

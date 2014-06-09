@@ -1,4 +1,4 @@
-RestaurantsBa.MyRestaurantRoute = Ember.Route.extend({
+RestaurantsBa.EditRestaurantRoute = Ember.Route.extend({
 	model : function(){
 		var owner_id = this.controllerFor("auth").currentUser.id;
 

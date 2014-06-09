@@ -1,7 +1,6 @@
 <div class="container">
 
-    
-  
+
    <h1 class="text-center">Restaurants</h1>
 
 
@@ -14,8 +13,10 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-2">
                     <ul class="meta-search">
-                        <li><i class="glyphicon glyphicon-home"></i> <span>Address</span></li>
-                        <li><i class="glyphicon glyphicon-phone-alt"></i> <span>{{telephone}}</span></li>
+                        <li><i class="glyphicon glyphicon-home"></i> <span>Address: empty </span></li>
+                        <li>
+                            <i class="glyphicon glyphicon-phone-alt"></i> <span>{{telephone}}</span>
+                        </li>
                         <li><i class="glyphicon glyphicon-link"></i><span>
                         <a {{bind-attr href="fb_url"}}>{{name}}</a></span>
                         </li>
@@ -24,9 +25,15 @@
                 <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                     <h3>{{name}}</h3>
                     <p>{{description}}</p>
-                    <button type="button" class="btn btn-success btn-lg" {{action "vote" id}}>
-                        Vote Now!
-                    </button>                     
+                     <button type="button" class="btn btn-info" {{action "edit" this}}> 
+                        Edit Restaurant 
+                    </button> 
+
+                                      
+                    <button type="button" class="btn btn-danger" {{action "delete" id}}> 
+                        Delete restaurant 
+                    </button>                  
+
             </div>
                 <span class="clearfix borda"></span>
             </article>

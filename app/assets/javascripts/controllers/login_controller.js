@@ -22,7 +22,7 @@ RestaurantsBa.LoginController = Ember.Controller.extend({
                 },
                 success: function(data) {
                     self.get("controllers.auth").setCurrentUser(data);
-                    self.get("controllers.profil").setCurrentUser(data);
+                    self.controllerFor("profil").setCurrentUser(data);
                     self.transitionToRoute("restaurants");
                 },
                 error: function(jqXhr, textStatus, errorThrown) {

@@ -1,6 +1,6 @@
 class Api::CouponesController < ApplicationController
   before_action :set_coupone, only: [:show, :edit, :update, :destroy]
-  #before_filter :coupone_params, only: [:create, :update]
+  before_filter :coupone_params, only: [:create, :update]
   
   # GET /coupones
   # GET /coupones.json
@@ -88,7 +88,7 @@ class Api::CouponesController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def coupone_params
-      @permitted = params.require(:coupone).permit(:id, :description, :number_of_available, :restaurant_id, :available_from, :ends_at)
+    def coupone_params 
+      @permitted = params.require(:coupones).permit(:id, :description, :number_of_available, :restaurant_id, :available_from, :ends_at)
     end
 end

@@ -10,11 +10,10 @@ RestaurantsBa.Router.map(function() {
 
     this.route("profil");
     this.route("my_restaurant");
+    this.route("edit_restaurant");
 
     this.resource("restaurants", function() {
-        this.resource("restaurant", {
-            'path': '/:restaurant_id'
-        });
+        this.resource("restaurant", {'path': '/:restaurant_id'});
         this.route("new");
     });
 

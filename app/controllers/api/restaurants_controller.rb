@@ -153,9 +153,29 @@ class Api::RestaurantsController < ApplicationController
 		end
 	end
 
+	def by_owner_id
+		respond_to do |format|
+		format.any(:json, :xml) {
+
+
+		  begin
+		    # something which might raise an exception
+			restaurant = Restaurant.where(owner_id: params[:id]).take
+		  rescue ActiveRecord::RecordNotFound
+		    head :not_found
+			return
+			#puts "Prosao sam dalje"
+		  end
+
+		  respond_with restaurant, status: :ok
+		}
+	  end
+	end
+
+
 	private
 	  def restaurant_params
-	    @permitted = params.require(:restaurant).permit(:id, :name, :description, :telephone, :fb_url, :image)
+	    @permitted = params.require(:restaurant).permit(:id, :name, :description, :telephone, :fb_url, :image, :owner_id)
 	  end
 
 	  def check_method
