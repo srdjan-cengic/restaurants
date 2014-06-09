@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140605192442) do
+ActiveRecord::Schema.define(version: 20140609081729) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "coupones", force: true do |t|
     t.string   "description"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20140605192442) do
   end
 
   create_table "restaurants", force: true do |t|
-    t.string   "name",        null: false
+    t.string   "name",                    null: false
     t.text     "description"
     t.string   "telephone"
     t.string   "fb_url"
@@ -40,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140605192442) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "adrress"
+    t.string   "address",     limit: 700
   end
 
   create_table "roles", force: true do |t|

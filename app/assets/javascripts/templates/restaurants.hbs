@@ -6,7 +6,10 @@
     <h1 class="text-center">Restaurants</h1><br>
     <h4 class="text-center"> Your new favorite restaurant is out there – go ahead, dig in! </h4>
     <br>
- 
+    
+  
+
+
     <div class="input-group">
         
         {{view Em.TextField valueBinding="filter" type="search" class="form-control" placeholder="Search" }}
@@ -28,7 +31,7 @@
 
                 <div class="col-xs-12 col-sm-12 col-md-2">
                     <ul class="meta-search">
-                        <li><i class="glyphicon glyphicon-home"></i> <span>Address</span></li>
+                        <li><i class="glyphicon glyphicon-home"></i> <span>{{item.address}}</span></li>
                         <li><i class="glyphicon glyphicon-phone-alt"></i> <span>{{item.telephone}}</span></li>
                         <li><i class="glyphicon glyphicon-link"></i><span>
                         <a {{bind-attr href="fb_url"}}>{{item.name}}</a></span>
@@ -38,6 +41,16 @@
                 <div class="col-xs-12 col-sm-12 col-md-7 excerpet">
                     <h3>{{#link-to "restaurant" item.id}}{{item.name}}{{/link-to}}</h3>
                     <p>{{item.description}}</p>
+                    
+                    <iframe
+                      width="500"
+                      height="200"
+                      frameborder="0" style="border:0"
+                      src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC5lp2B_bUPJPLCzOOYwi3-vM442m1PKsA
+                      &q=Metropolis,Maršala Tita 21, Sarajevo 71000">
+                    </iframe>
+                    
+                       <br>
                     <button type="button" class="btn btn-success btn-lg" {{action "vote" id}}>
                         Vote Now!
                     </button>                     

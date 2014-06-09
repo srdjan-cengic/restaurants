@@ -25,3 +25,23 @@
 // for more details see: http://emberjs.com/guides/application/
 RestaurantsBa = Ember.Application.create();
 
+RestaurantsBa.MapView = Ember.ContainerView.extend({
+
+  id: 'map-canvas',
+  tagName: 'div',
+
+  attributeBindings: ['style'],
+  style:"height: 200px; ",
+  
+  map:null,
+
+  didInsertElement: function() {
+    var mapOptions = {
+      center: new google.maps.LatLng(28.405765,77.049479),
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    var map = new google.maps.Map(this.$().get(0),mapOptions);
+    this.set("map",map);
+  }
+});
