@@ -12,6 +12,9 @@ RestaurantsBa.Router.map(function() {
     this.route("my_restaurant");
     this.route("edit_restaurant");
 
+    this.route("coupons");
+    this.route("edit_coupon")
+
     this.resource("restaurants", function() {
         this.resource("restaurant", {'path': '/:restaurant_id'});
         this.route("new");

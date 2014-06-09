@@ -1,0 +1,44 @@
+<div class="container">
+
+	<br>
+ 
+    <h1 class="text-center">Coupons</h1><br>
+    <h4 class="text-center"> Simply use the restaurant coupon you like best and get ready to chow down on the cheap. </h4>
+    <br>
+ 
+    <div class="input-group">
+        
+        {{view Em.TextField valueBinding="filter" type="search" class="form-control" placeholder="Search" }}
+        <span class="input-group-addon">
+            <i class="glyphicon glyphicon-search"></i>
+        </span>
+    </div>
+  
+    <br>
+    <hr class="colorgraph">
+    <br>
+
+    <div class="row">
+    	 
+		{{#each item in filteredContent}}
+			<div class="col-xs-6 col-sm-6 col-md-3">
+	          <div class="thumbnail">
+	            <img src="assets/buy-your-meal.png" alt="">
+	              <div class="caption">
+	                
+	                <p><b>Description:</b> {{ item.description }}</p>
+	                <p>Number of available coupones: <font color="red"><b>{{ item.number_of_available}}</b></font></p>
+	                <p>Restaurant: <font color="blue"><b>{{item.restaurant.name}}</b></font></p>
+	                <p> 
+	                	<br>
+	                	<button {{action deleteCoupon item}} class="btn btn-danger btn-block">Delete coupon</button>
+	                	<br>
+	                	<button {{action "edit" this}} class="btn btn-primary btn-block">Edit coupon</button>
+	                </p>
+	            </div>
+	          </div>
+	        </div>      	
+		{{/each}}
+	
+	</div>
+</div>
