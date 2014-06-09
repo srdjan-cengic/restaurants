@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140609081729) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "coupones", force: true do |t|
     t.string   "description"
     t.integer  "number_of_available"
@@ -34,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140609081729) do
   end
 
   create_table "restaurants", force: true do |t|
-    t.string   "name",                    null: false
+    t.string   "name",        null: false
     t.text     "description"
     t.string   "telephone"
     t.string   "fb_url"
@@ -42,8 +39,7 @@ ActiveRecord::Schema.define(version: 20140609081729) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "adrress"
-    t.string   "address",     limit: 700
+    t.string   "address"
   end
 
   create_table "roles", force: true do |t|
