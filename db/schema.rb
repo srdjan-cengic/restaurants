@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20140605192442) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "adrress"
   end
 
   create_table "roles", force: true do |t|
