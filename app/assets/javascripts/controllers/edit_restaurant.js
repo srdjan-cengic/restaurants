@@ -1,21 +1,21 @@
-RestaurantsBa.EditRestaurantController = Ember.Controller.extend({
-    isFailed: false,
-    currentUser: null,
-    setCurrentUser: function(user) {
-        if (typeof user === "undefined") this.set("currentUser", null);
-        else this.set("currentUser", user);
-    },
+RestaurantsBa.EditRestaurantController = Ember.ObjectController.extend({
+    
     actions: {
-		edit: function() {
+		edit: function(restaurant_id) {
 			var self = this;
 			console.log("IZZZ", this.content);
 			$.ajax({
-				url: "api/restaurants/2",
+				url: "api/restaurants/"+ restaurant_id,
 				type: "PUT",
 				data: {
 					
 					
-					"user[description]": this.get("description")
+					"restaurant[name]": this.get("name"),
+					"restaurant[description]": this.get("description"),
+					"restaurant[telephone]": this.get("telephone"),
+					"restaurant[fb_url]": this.get("fb_url"),
+					"restaurant[image]": this.get("image"),
+			
 					
 
 				},

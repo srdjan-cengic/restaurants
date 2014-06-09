@@ -10,6 +10,11 @@ RestaurantsBa.MyRestaurantController = Ember.ObjectController.extend({
 	   				self.transitionToRoute("restaurants");
 	   			}
 	   		});
+	   	},
+	   		edit: function() {
+	   		
+	   		var self = this;
+	   		self.transitionToRoute('edit_restaurant');
 	   	}
    }
 
