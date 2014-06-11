@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 	# created, saved, updated, deleted, validated, or loaded from the database.
 	# SO, Callbacks allow you to trigger logic before or after an alteration of an object's state.
 	before_save :encrypt_password
+	before_update :encrypt_password
 	#########################################################################################################
 
 	################################## Virtual attributes and validations ###################################
