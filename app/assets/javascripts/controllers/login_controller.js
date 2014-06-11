@@ -6,9 +6,9 @@
 // imao si this.route("login"); i login.hbs i nista vise
 
 RestaurantsBa.LoginController = Ember.Controller.extend({
-	needs: ["auth"],
-	isFailed: false,
-	
+    needs: ["auth"],
+    isFailed: false,
+
     actions: {
         login: function() {
             var self = this;
@@ -22,7 +22,6 @@ RestaurantsBa.LoginController = Ember.Controller.extend({
                 },
                 success: function(data) {
                     self.get("controllers.auth").setCurrentUser(data);
-                    self.controllerFor("profil").setCurrentUser(data);
                     self.transitionToRoute("restaurants");
                 },
                 error: function(jqXhr, textStatus, errorThrown) {
