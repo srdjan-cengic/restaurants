@@ -1,18 +1,26 @@
 RestaurantsBa.CouponsController = Ember.ArrayController.extend({
     
-    content: [],
-    filter: "",
-
-    filteredContent: function() {
-        var filter = this.get('filter');
-        
-        return this.get('content').filter(function(item, index, enumerable){
-          return item.get('description').toLowerCase().match(filter.toLowerCase());
-        });
-    }.property('filter', 'content.@each'),
+    
 
 
     actions: {
+            all: function(){
+            var self = this;
+        
+            $.ajax({
+                type: "GET",
+                url: "api/restaurants/search.json?description="+this.get("description"),
+                data: {
+                    
+                },
+                success: function(data) {
+                    self.set('content',data.coupones);
+                    
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                }
+            });
+        },
       
         deleteCoupon: function(coupone) {
             if (window.confirm("Are you sure you want to delete this coupon?")) {

@@ -1,25 +1,18 @@
 RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
-	content: [],
-    filter: "",
-    filteredContent: function() {
-        var filter = this.get('filter');
-    
-        return this.get('content').filter(function(item, index, enumerable){
-            return item.get('name').toLowerCase().match(filter.toLowerCase());
-        });
-    }.property('filter', 'content.@each'),
+
 
 	actions: {
 		all: function(){
-
+			var self = this;
+		
 			$.ajax({
 				type: "GET",
-				url: "api/restaurants/search.json?name="+this.get("naziv"),
+				url: "api/restaurants/search.json?name="+this.get("name"),
 				data: {
 					
 				},
-				success: function() {
-					this.transitionToRoute("coupones");
+				success: function(data) {
+					self.set('content',data.restaurants);
 					
 				},
 				error: function(jqXHR, textStatus, errorThrown) {

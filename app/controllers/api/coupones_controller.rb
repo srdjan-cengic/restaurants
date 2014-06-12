@@ -73,6 +73,21 @@ class Api::CouponesController < ApplicationController
 
   # DELETE /coupones/1
   # DELETE /coupones/1.json
+def search
+    
+          coupones = Coupone.where("description LIKE ?", "%#{params[:description]}%");
+
+           if coupones.empty? 
+        head :not_found
+        return
+      end
+
+         
+
+    respond_with coupones, status: :ok 
+    
+  end
+
   def destroy
     @coupone.destroy
     respond_to do |format|

@@ -3,16 +3,15 @@
 	<br>
  
     <h1 class="text-center">Coupons</h1><br>
-    <h4 class="text-center"> Simply use the restaurant coupon you like best and get ready to chow down on the cheap. </h4>
+    <h4 class="text-center"> Simply use the restaurant coupon you like best and get ready to chow down on the cheap!!!!. </h4>
     <br>
  
     <div class="input-group">
         
-        {{view Em.TextField valueBinding="filter" type="search" class="form-control" placeholder="Search" }}
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-search"></i>
-        </span>
-    </div>
+         {{view Ember.TextField valueBinding="description" type="text" id="description" class="form-control input-xlarge" placeholder="description"}}
+        <button type="button" class="btn btn-success btn-lg" {{action "all" }}>
+                        Search!</button>
+                    </div>
   
     <br>
     <hr class="colorgraph">
@@ -20,7 +19,7 @@
 
     <div class="row">
     	 
-		{{#each item in filteredContent}}
+		{{#each item in controller}}
 			<div class="col-xs-6 col-sm-6 col-md-3">
 	          <div class="thumbnail">
 	            <img src="assets/buy-your-meal.png" alt="">

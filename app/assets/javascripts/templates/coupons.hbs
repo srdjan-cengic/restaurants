@@ -8,11 +8,10 @@
  
     <div class="input-group">
         
-        {{view Em.TextField valueBinding="filter" type="search" class="form-control" placeholder="Search" }}
-        <span class="input-group-addon">
-            <i class="glyphicon glyphicon-search"></i>
-        </span>
-    </div>
+         {{view Ember.TextField valueBinding="name" type="text" id="name" class="form-control input-xlarge" placeholder="name"}}
+        <button type="button" class="btn btn-success btn-lg" {{action "all" }}>
+                        Search!</button>
+                    </div>
   
     <br>
     <hr class="colorgraph">
