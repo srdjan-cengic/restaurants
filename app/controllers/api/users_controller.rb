@@ -1,4 +1,5 @@
 class Api::UsersController < ApplicationController
+  before_filter :user_params, only: [:create, :update]
   #respond_to in conjuction with respond_with
   respond_to :json
 
@@ -33,7 +34,22 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def update
+ def update
+    respond_to do |format|
+      format.any(:json, :xml) {
+        begin
+            # something which might raise an exception
+          @user = User.find(params[:id])
+          @user.update(@permited)
+        rescue ActiveRecord::RecordNotFound
+            head :not_found
+          return
+        end
+
+        head :no_content
+          return
+      }
+    end
   end
 
   def destroy
@@ -43,6 +59,6 @@ class Api::UsersController < ApplicationController
   # With user_params method we want to limit mass assigment only to:
   # email, password and password_confirmation
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :username)
+    @permited = params.require(:user).permit(:email, :password, :password_confirmation, :username)
   end
 end

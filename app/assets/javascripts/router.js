@@ -6,9 +6,9 @@ RestaurantsBa.Router.map(function() {
     this.route("login");
 
     this.route("favourites");
-    
 
-    this.route("profil");
+
+    this.route("profile");
     this.route("my_restaurant");
     this.route("edit_restaurant");
 
@@ -16,7 +16,9 @@ RestaurantsBa.Router.map(function() {
     this.route("edit_coupon")
 
     this.resource("restaurants", function() {
-        this.resource("restaurant", {'path': '/:restaurant_id'});
+        this.resource("restaurant", {
+            'path': '/:restaurant_id'
+        });
         this.route("new");
     });
 
@@ -24,6 +26,8 @@ RestaurantsBa.Router.map(function() {
     this.resource("restaurants_new");
     this.resource("maps");
 
-    this.resource("coupones", { path: "/coupones" });
+    this.resource("coupones", {
+        path: "/coupones"
+    });
     this.resource("coupones_new");
 });
