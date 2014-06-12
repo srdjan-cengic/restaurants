@@ -1,15 +1,14 @@
 RestaurantsBa.CouponsController = Ember.ArrayController.extend({
     
-    
-
+   
 
     actions: {
-            all: function(){
+          all: function(){
             var self = this;
         
             $.ajax({
                 type: "GET",
-                url: "api/restaurants/search.json?description="+this.get("description"),
+                url: "api/coupones/search.json?description="+this.get("description"),
                 data: {
                     
                 },

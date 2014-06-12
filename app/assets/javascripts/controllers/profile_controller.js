@@ -20,7 +20,7 @@ RestaurantsBa.ProfileController = Ember.Controller.extend({
                     "user[username]": this.get("content.username")
                 },
                 success: function(data) {
-                    self.transitionToRoute('profile');
+                    self.transitionToRoute('restaurants');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Takes a well-formed JSON string and returns the resulting JavaScript object.

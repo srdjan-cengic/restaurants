@@ -56,6 +56,22 @@ class Api::CouponesController < ApplicationController
       }
     end
   end
+  def find_by_restaurant
+   
+
+
+      begin
+        # something which might raise an exception
+      @coupones = Coupone.where("restaurant_id = ? ", params[:restaurant_id]);
+      rescue ActiveRecord::RecordNotFound
+        head :not_found
+      return
+      
+      end
+
+      respond_with @coupones, status: :ok
+  
+  end
 
   # PATCH/PUT /coupones/1
   # PATCH/PUT /coupones/1.json

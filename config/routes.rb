@@ -38,7 +38,7 @@ RestaurantsBa::Application.routes.draw do
     end
     resources :coupones, defaults:{format: 'json'} do 
       collection do
-        get 'search'
+        get 'search', 'find_by_restaurant'
       end
     end
     resources :sessions, only: [:create, :destroy], defaults: {format: 'json'}
