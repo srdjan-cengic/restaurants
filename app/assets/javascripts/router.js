@@ -4,6 +4,7 @@ RestaurantsBa.Router.map(function() {
     this.route("search");
     this.route("registration");
     this.route("login");
+    this.route("index");
 
     this.route("favourites");
 
