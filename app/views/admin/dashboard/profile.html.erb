@@ -32,19 +32,22 @@
             <h4> Basic Informations </h4>
             <div class="table-responsive">
               <div id="update-container">
-                <table class="table table-striped">
+                <table class="table">
                   <tbody>
-                    <tr>
+                    <tr class="success">
+                      <td><i class="glyphicon glyphicon-user"></i></td>
                       <td>Name</td>
-                      <td><%= current_user.name %></td>
+                      <td><strong><%= current_user.name %></strong></td>
                     </tr>
                     <tr>
+                      <td></td>
                       <td>Username</td>
-                      <td><%= current_user.username %></td>
+                      <td><strong><%= current_user.username %></strong></td>
                     </tr>
                     <tr>
+                      <td><i class="glyphicon glyphicon-envelope"></i></td>
                       <td>Email</td>
-                      <td><%= current_user.email %></td>
+                      <td><strong><%= current_user.email %></strong></td>
                     </tr>
                   </tbody>
                 </table>
@@ -85,7 +88,7 @@
               <%= f.hidden_field :picture_cache %><br>
 
                                         
-              <%= f.submit "Update informations", class: "btn btn-primary" %>
+              <%= f.submit "Update informations", class: "btn btn-success" %>
             <% end %>
 
             <div class="update-tab-notices"></div>
@@ -100,19 +103,19 @@
                             html: { class: "form-horizontal reset-password", role: "form" } do |f| %>
 
                 <div class="form-group">
-                  <div class="col-md-5">
+                  <div class="col-md-3">
                     <%= f.password_field :password, class: "form-control", placeholder: "password" %>
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <div class="col-md-5">
+                  <div class="col-md-3">
                     <%= f.password_field :password_confirmation, class: "form-control", 
                                           placeholder: "password confirmation"  %>
                   </div>
                 </div>
 
-                <%= f.submit %>
+                <%= f.submit "Change password", class: "btn btn-success"%>
               <% end %>
           </div> 
 

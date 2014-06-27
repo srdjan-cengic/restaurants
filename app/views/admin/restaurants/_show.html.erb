@@ -2,7 +2,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Show Restourant Information</h4>
+        <h4 class="modal-title">Restaurant Informations</h4>
       </div>
       <div class="modal-body">
   <strong>Name:</strong>
@@ -20,13 +20,13 @@
 </p>
 
 <p>
-  <strong>Fb url:</strong>
+  <strong>Web site:</strong>
   <%= @restaurant.fb_url %>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @restaurant.image %>
+  <strong>Image:</strong><br>
+  <%= image_tag(@restaurant.image) %>
 </p>
 
 <p>

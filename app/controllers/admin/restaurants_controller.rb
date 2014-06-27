@@ -45,7 +45,7 @@ class Admin::RestaurantsController < Admin::BaseController
 
     respond_to do |format|
       if @restaurant.save
-        format.html { redirect_to admin_restaurants_path(@restaurant), notice: 'Restaurant was successfully created.' }
+        format.html { redirect_to admin_restaurants_path, notice: 'Restaurant was successfully created.' }
         format.json { render action: 'show', status: :created, location: @restaurant }
       else
         format.html { render action: 'new' }
@@ -59,7 +59,7 @@ class Admin::RestaurantsController < Admin::BaseController
   def update
     respond_to do |format|
       if @restaurant.update(restaurant_params)
-        format.html { redirect_to admin_restaurants_path(@restaurant), notice: 'Restaurant was successfully updated.' }
+        format.html { redirect_to admin_restaurants_path, notice: 'Restaurant was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

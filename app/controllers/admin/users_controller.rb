@@ -17,7 +17,7 @@ class Admin::UsersController < Admin::BaseController
 
 	    respond_to do |format|
 	      if @user.save
-	        format.html { redirect_to admin_users_path(@user), notice: 'User was successfully created.' }
+	        format.html { redirect_to admin_users_path, notice: 'User was successfully created.' }
 	        format.json { render action: 'show', status: :created, location: @user }
 	      else
 	        format.html { render action: 'new' }
@@ -49,7 +49,7 @@ class Admin::UsersController < Admin::BaseController
 		end
 
 		respond_to do |format|
-			format.html { redirect_to admin_users_path(@user), notice: 'User was successfully updated.' }
+			format.html { redirect_to admin_users_path, notice: 'User was successfully updated.' }
 			format.js
 		end
 	end

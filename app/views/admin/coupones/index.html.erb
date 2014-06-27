@@ -6,9 +6,10 @@
     <%= render "admin/dashboard/sidebar" %>
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1>Listing coupones</h1>
+      <h1>Listing coupons</h1>
+      <hr>
 
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>Restaurant</th>
@@ -23,16 +24,16 @@
 
         <tbody>
           <% @coupones.each do |coupone| %>
-           <td><%= coupone.restaurant.name if coupone.restaurant  %></td>
-           <td><%= coupone.number_of_available  %></td>
-           <td><%= coupone.description[0,30]+'...' %></td>
+            <td><%= coupone.restaurant.name if coupone.restaurant  %></td>
+            <td><%= coupone.number_of_available  %></td>
+            <td><%= coupone.description[0,30]+'...' %></td>
            
 
-           <td><%= link_to 'show', admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
-              <td><%= link_to 'edit', edit_admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
-              <td><%= link_to 'Destroy', admin_coupone_path(coupone), 
+            <td><%= link_to 'Show', admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+            <td><%= link_to 'Edit', edit_admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-success'}  %> 
+            <td><%= link_to 'Destroy', admin_coupone_path(coupone), 
                                          method: :delete, data: { confirm: 'Are you sure?' }, 'class'=>'btn btn-danger' %></td>
-            </tr>
+          </tr>
 
 
           <% end %>
@@ -42,7 +43,7 @@
       <br>
       
 
-      <%= link_to 'New Coupone', new_admin_coupone_path %>
+      <%= link_to 'New Coupone', new_admin_coupone_path, 'class'=>'btn btn-primary' %>
       <div id="showModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
 
