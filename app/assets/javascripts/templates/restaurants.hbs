@@ -45,12 +45,12 @@
                       width="500"
                       height="200"
                       frameborder="0" style="border:0"
-                      src = "https://www.google.com/maps/embed/v1/place?key=AIzaSyC5lp2B_bUPJPLCzOOYwi3-vM442m1PKsA
-                      &q=Metropolis,Maršala Tita 21, Sarajevo 71000">
+                      {{bind-attr src=item.url}}>
                     </iframe>
                     
                        <br>
-                    <button type="button" class="btn btn-success btn-lg" {{action "vote" id}}>
+                   
+                    <button type="button" class="btn btn-success btn-lg" {{action "vote" item.id}}>
                         Vote Now!
                     </button>                     
                 </div>

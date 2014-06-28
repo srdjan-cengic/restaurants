@@ -20,8 +20,18 @@
 </p>
 
 <p>
+  <strong>Address:</strong>
+  <%= @restaurant.address %>
+</p>
+
+<p>
   <strong>Web site:</strong>
   <%= @restaurant.fb_url %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= User.find(@restaurant.owner_id).email%>
 </p>
 
 <p>
@@ -29,10 +39,7 @@
   <%= image_tag(@restaurant.image) %>
 </p>
 
-<p>
-  <strong>Owner:</strong>
-  <%= User.find(@restaurant.owner_id).email%>
-</p>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
