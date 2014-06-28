@@ -103,60 +103,75 @@
 
 </style>
 <script type="text/javascript">
-  $( document ).ready(function() {
+$( document ).ready(function() {
 
 
-  });
-  var kuponi;
-  var podaci=[];
-  var rezultati=[];
-  var NumberOfAllCoupones=0;
-   $.ajax({
-      type: "GET",
-      url: "/api/coupones",
-      data: {
-          
-      },
-      success: function(data) {
-          //alert(data.coupones[0].id);
-          kuponi =data;
-          kuponi.coupones.forEach(function(entry) {
-          NumberOfAllCoupones+=entry.number_of_available;
-        }); 
-          kuponi.coupones.forEach(function(entry) {
-          podaci.push({value: ((entry.number_of_available/NumberOfAllCoupones)*100).toFixed(2),label:entry.restaurant.name});
-          
-          rezultati.push({x: entry.restaurant.name,y: entry.number_of_available})
+});
+var kuponi;
+var podaci=[];
+var rezultati=[];
+var restorani=[];
+var NumberOfAllCoupones=0;
+ $.ajax({
+    type: "GET",
+    url: "/api/coupones",
+    data: {
+        
+    },
+    success: function(data) {
+        //alert(data.coupones[0].id);
+        kuponi =data;
+        kuponi.coupones.forEach(function(entry) {
+        NumberOfAllCoupones+=entry.number_of_available;
+      }); 
+        kuponi.coupones.forEach(function(entry) {
+        podaci.push({value: ((entry.number_of_available/NumberOfAllCoupones)*100).toFixed(2),label:entry.restaurant.name});
+        if($.inArray(entry.restaurant.name, restorani)!=-1)
+        {
+        
+        for (var i = 0; i < rezultati.length; i++) {
+           if (rezultati[i].x == entry.restaurant.name) {
+                    rezultati[i].y+=entry.number_of_available;
+                  }
+              }
+        }
+        else{
+        rezultati.push({x: entry.restaurant.name,y: entry.number_of_available})
+        restorani.push(entry.restaurant.name)
+        }
+      }); 
 
-          
-        }); 
-        Morris.Bar({
-          element: 'graph',
-          data: rezultati,
-          xkey: 'x',
-          ykeys: ['y'],
-          labels: ['Coupons'],
-          barColors: function (row, series, type) {
-      if (type === 'bar') {
-        var blue = Math.ceil(130 * row.y / this.ymax);
-        return 'rgb(' + blue + ',50,50)';
-      }
-      else {
-        return '#000';
-      }
+      Morris.Bar({
+        element: 'graph',
+        data: rezultati,
+        xkey: 'x',
+        ykeys: ['y'],
+        labels: ['Cupones'],
+        barColors: function (row, series, type) {
+    if (type === 'bar') {
+      var blue = Math.ceil(130 * row.y / this.ymax);
+      return 'rgb(' + blue + ',50,50)';
     }
-  });  
-        Morris.Donut({
-            element: 'graph2',
-            data: podaci,
-            formatter: function (value) { return value + "%"}
-          });
-      },
-      error: function(jqXHR, textStatus, errorThrown) {
-      }
-  });
+    else {
+      return '#000';
+    }
+  }
+});  
+      Morris.Donut({
+          element: 'graph2',
+          data: podaci,
+          formatter: function (value) { return value + "%"}
+        });
+    },
+    error: function(jqXHR, textStatus, errorThrown) {
+    }
+});
  
+ 
+
+
 </script>
+
 <%= render "navbar" %>
 
 <div class="container-fluid">
