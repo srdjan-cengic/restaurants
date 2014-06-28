@@ -27,7 +27,7 @@ RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
 					restaurant_id: restaurant_id
 				},
 				success: function(data) {
-
+					alert("Now, you voted for your favourite restaurant.")
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 				}
