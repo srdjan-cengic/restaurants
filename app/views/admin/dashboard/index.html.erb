@@ -125,17 +125,23 @@ var NumberOfAllCoupones=0;
         NumberOfAllCoupones+=entry.number_of_available;
       }); 
         kuponi.coupones.forEach(function(entry) {
-        podaci.push({value: ((entry.number_of_available/NumberOfAllCoupones)*100).toFixed(2),label:entry.restaurant.name});
+      
         if($.inArray(entry.restaurant.name, restorani)!=-1)
         {
         
         for (var i = 0; i < rezultati.length; i++) {
            if (rezultati[i].x == entry.restaurant.name) {
                     rezultati[i].y+=entry.number_of_available;
+                    var dodatak= ((entry.number_of_available/NumberOfAllCoupones)*100);
+                    dodatak=dodatak.toFixed(2);
+                    
+                    podaci[i].value=Number(podaci[i].value)+Number(dodatak);
+                   // podaci[i].value+=((entry.number_of_available/NumberOfAllCoupones));
                   }
               }
         }
         else{
+        podaci.push({value: ((entry.number_of_available/NumberOfAllCoupones)*100).toFixed(2),label:entry.restaurant.name});
         rezultati.push({x: entry.restaurant.name,y: entry.number_of_available})
         restorani.push(entry.restaurant.name)
         }
@@ -230,7 +236,7 @@ var NumberOfAllCoupones=0;
                 <p>
                   <h3>&nbsp;</h3>
                   <h4>Total</h4>
-                  <h2> <%= Coupone.count %> <i class="glyphicon glyphicon-barcode"></i></h2>
+                  <h2> <%= Coupone.sum("number_of_available") %> <i class="glyphicon glyphicon-barcode"></i></h2>
                   available coupons.
                 </p>
               </div>
