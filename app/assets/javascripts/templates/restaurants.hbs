@@ -1,26 +1,22 @@
 <div class="container">
 
-    
     <br>
  
     <h1 class="text-center">Restaurants</h1><br>
     <h4 class="text-center"> Your snew favorite restaurant is out there – go ahead, dig in! </h4>
     <br>
    
-    
-  
-
-
-    <div class="input-group">
-        
-         {{view Ember.TextField valueBinding="name" type="text" id="name" class="form-control input-xlarge" placeholder="name"}}
-        <button type="button" class="btn btn-success btn-lg" {{action "all" }}>
-                        Search!</button>
+    <div class="input-group">      
+        {{view Ember.TextField valueBinding="name" type="text" id="name" class="form-control input-xlarge" placeholder="Search by name"}}
         <span class="input-group-addon">
             <i class="glyphicon glyphicon-search"></i>
         </span>
     </div>
-  
+    <br>
+    <button type="button" class="btn btn-success" {{action "all" }}>
+        Search!
+    </button>
+
     <br>
     <hr class="colorgraph">
     <br>

@@ -6,12 +6,16 @@
     <h4 class="text-center"> Simply use the restaurant coupon you like best and get ready to chow down on the cheap!!!!. </h4>
     <br>
  
-    <div class="input-group">
-        
-         {{view Ember.TextField valueBinding="description" type="text" id="description" class="form-control input-xlarge" placeholder="description"}}
-        <button type="button" class="btn btn-success btn-lg" {{action "all" }}>
-                        Search!</button>
-                    </div>
+     <div class="input-group">      
+        {{view Ember.TextField valueBinding="name" type="text" id="name" class="form-control input-xlarge" placeholder="Search by description"}}
+        <span class="input-group-addon">
+            <i class="glyphicon glyphicon-search"></i>
+        </span>
+    </div>
+    <br>
+    <button type="button" class="btn btn-success" {{action "all" }}>
+        Search!
+    </button>
   
     <br>
     <hr class="colorgraph">

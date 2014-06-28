@@ -28,7 +28,7 @@ class Admin::CouponesController < Admin::BaseController
 
     respond_to do |format|
       if @coupone.save
-        format.html { redirect_to admin_coupone_path(@coupone), notice: 'Coupone was successfully created.' }
+        format.html { redirect_to admin_coupones_path, notice: 'Coupone was successfully created.' }
         format.json { render action: 'show', status: :created, location: @coupone }
       else
         format.html { render action: 'new' }
@@ -42,7 +42,7 @@ class Admin::CouponesController < Admin::BaseController
   def update
     respond_to do |format|
       if @coupone.update(coupone_params)
-        format.html { redirect_to admin_coupone_path(@coupone), notice: 'Coupone was successfully updated.' }
+        format.html { redirect_to admin_coupones_path, notice: 'Coupone was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }

@@ -28,13 +28,11 @@
             <td><%= coupone.number_of_available  %></td>
             <td><%= coupone.description[0,30]+'...' %></td>
            
-
             <td><%= link_to 'Show', admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
             <td><%= link_to 'Edit', edit_admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-success'}  %> 
             <td><%= link_to 'Destroy', admin_coupone_path(coupone), 
                                          method: :delete, data: { confirm: 'Are you sure?' }, 'class'=>'btn btn-danger' %></td>
           </tr>
-
 
           <% end %>
         </tbody> 
