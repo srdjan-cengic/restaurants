@@ -8,17 +8,17 @@
 
             <article class="search-result row">
                 <div class="col-xs-12 col-sm-12 col-md-3">
-                    <img {{bind-attr src="imagePath"}} height="180" width="280">
+                    <img {{bind-attr src=image}} height="180" width="280">
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-2">
                     <ul class="meta-search">
-                        <li><i class="glyphicon glyphicon-home"></i> <span>Address: empty </span></li>
+                        <li><i class="glyphicon glyphicon-home"></i> <span> {{address}} </span></li>
                         <li>
-                            <i class="glyphicon glyphicon-phone-alt"></i> <span>{{telephone}}</span>
+                            <i class="glyphicon glyphicon-phone-alt"></i> <span> {{telephone}}</span>
                         </li>
                         <li><i class="glyphicon glyphicon-link"></i><span>
-                        <a {{bind-attr href="fb_url"}}>{{name}}</a></span>
+                        <a {{bind-attr href=fb_url}}>{{name}}</a></span>
                         </li>
                     </ul>
                 </div>
@@ -26,8 +26,6 @@
                     <h3>{{name}}</h3>
                     <p>{{description}}</p>
                      
-
-
                      <button type="button" class="btn btn-info" {{action "edit" this}}> 
                         Edit Restaurant 
                     </button> 
@@ -37,10 +35,19 @@
                         Delete restaurant 
                     </button>                  
 
-            </div>
+                </div>
                 <span class="clearfix borda"></span>
             </article>
+            <br><br>
             <hr>
-      
+            <iframe
+                width="800"
+                height="600"
+                frameborder="0" style="border:0"
+                {{bind-attr src=adresaURL}}>
+            </iframe>
+
+            <hr>
+
     </section>
 </div>

@@ -1,5 +1,5 @@
 RestaurantsBa.CouponesNewController = Ember.ObjectController.extend({
-
+	
 	actions: {
 		create: function() {
 			var self = this;

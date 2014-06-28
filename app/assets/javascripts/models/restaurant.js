@@ -5,6 +5,7 @@ RestaurantsBa.Restaurant = DS.Model.extend({
   image: DS.attr('string'),
   telephone: DS.attr('string'),
   address: DS.attr('string'),
+  adresaURL: DS.attr('string'),
 
   nekaFunkcija: function() {
   	return "neka bussines logika!?";
