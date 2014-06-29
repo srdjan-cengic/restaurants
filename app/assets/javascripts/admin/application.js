@@ -4,5 +4,3 @@
 //= require docs.min
 //= require raphael
 //= require morris
-
-alert("srle");
