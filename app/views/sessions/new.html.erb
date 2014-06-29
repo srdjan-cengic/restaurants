@@ -2,9 +2,17 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+				<h4> Test account: username = admin@gmail.com, password: adminadmin </h4>
+
 				<div class="panel panel-primary">
 					<div class="panel-heading" align="center">Login</div>
 					<div class="panel-body">
+
+						<% if flash[:error] %>
+							<p class="admin-error"> <%= flash[:error] %> </p>
+							<% flash[:error] = nil %>
+						<% end %>
 
 						<div class="images-holder" align="center">
 							<%= image_tag "restaurants-logo.png" %><br><br>

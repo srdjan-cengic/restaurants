@@ -16,7 +16,8 @@ class SessionsController < ApplicationController
   		# This means that values stored there will only be available in the next request, 
   		# which is useful for passing error messages etc.
 
-  		flash.now.alert = "Invalid email or password"
+  		#flash.now.alert = "Invalid email or password"
+      flash[:error] = "Invalid email or password"
   		render "new"
   	end
   end
