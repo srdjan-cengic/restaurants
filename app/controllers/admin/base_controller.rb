@@ -1,8 +1,8 @@
 class Admin::BaseController < ApplicationController
 	layout "admin"
 
-	before_action :authenticate_user
-	before_action :require_admin_user
+	before_action :authenticate_user, :except=>[:new, :create]
+	before_action :require_admin_user, :except=>[:new, :create]
 
 	private
 	def authenticate_user
