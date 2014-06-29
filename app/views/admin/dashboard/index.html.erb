@@ -103,79 +103,73 @@
 
 </style>
 <script type="text/javascript">
-$( document ).ready(function() {
+$(function() {
+  
+  var kuponi;
+  var podaci=[];
+  var rezultati=[];
+  var restorani=[];
+  var NumberOfAllCoupones=0;
 
+   $.ajax({
+      type: "GET",
+      url: "/api/coupones",
+      data: {},
+      success: function(data) {
+          //alert(data.coupones[0].id);
+          console.log(data);
+          kuponi = data;
+          kuponi.coupones.forEach(function(entry) {
+            NumberOfAllCoupones += entry.number_of_available;
+          }); 
+          
+          kuponi.coupones.forEach(function(entry) {
+            console.log("?", entry)
+            if($.inArray(entry.restaurant.name, restorani) != -1) {
 
-});
-var kuponi;
-var podaci=[];
-var rezultati=[];
-var restorani=[];
-var NumberOfAllCoupones=0;
- $.ajax({
-    type: "GET",
-    url: "/api/coupones",
-    data: {
-        
-    },
-    success: function(data) {
-        //alert(data.coupones[0].id);
-        kuponi =data;
-        kuponi.coupones.forEach(function(entry) {
-        NumberOfAllCoupones+=entry.number_of_available;
-      }); 
-        kuponi.coupones.forEach(function(entry) {
-      
-        if($.inArray(entry.restaurant.name, restorani)!=-1)
-        {
-        
-        for (var i = 0; i < rezultati.length; i++) {
-           if (rezultati[i].x == entry.restaurant.name) {
-                    rezultati[i].y+=entry.number_of_available;
-                    var dodatak= ((entry.number_of_available/NumberOfAllCoupones)*100);
-                    dodatak=dodatak.toFixed(2);
-                    
-                    podaci[i].value=Number(podaci[i].value)+Number(dodatak);
-                   // podaci[i].value+=((entry.number_of_available/NumberOfAllCoupones));
-                  }
+              for (var i = 0; i < rezultati.length; i++) {
+                if (rezultati[i].x == entry.restaurant.name) {
+                  rezultati[i].y+=entry.number_of_available;
+                  var dodatak= ((entry.number_of_available/NumberOfAllCoupones)*100);
+                  dodatak=dodatak.toFixed(2);
+                  
+                  podaci[i].value=Number(podaci[i].value)+Number(dodatak);
+                 // podaci[i].value+=((entry.number_of_available/NumberOfAllCoupones));
+                }
               }
-        }
-        else{
-        podaci.push({value: ((entry.number_of_available/NumberOfAllCoupones)*100).toFixed(2),label:entry.restaurant.name});
-        rezultati.push({x: entry.restaurant.name,y: entry.number_of_available})
-        restorani.push(entry.restaurant.name)
-        }
-      }); 
+            }
+            else {
+              podaci.push({value: ((entry.number_of_available/NumberOfAllCoupones)*100).toFixed(2),label:entry.restaurant.name});
+              rezultati.push({x: entry.restaurant.name,y: entry.number_of_available})
+              restorani.push(entry.restaurant.name)
+            }
+        }); 
 
-      Morris.Bar({
-        element: 'graph',
-        data: rezultati,
-        xkey: 'x',
-        ykeys: ['y'],
-        labels: ['Cupones'],
-        barColors: function (row, series, type) {
-    if (type === 'bar') {
-      var blue = Math.ceil(130 * row.y / this.ymax);
-      return 'rgb(' + blue + ',50,50)';
-    }
-    else {
-      return '#000';
-    }
-  }
-});  
-      Morris.Donut({
-          element: 'graph2',
-          data: podaci,
-          formatter: function (value) { return value + "%"}
+        Morris.Bar({
+          element: 'graph',
+          data: rezultati,
+          xkey: 'x',
+          ykeys: ['y'],
+          labels: ['Cupones'],
+          barColors: function (row, series, type) {
+            if (type === 'bar') {
+              var blue = Math.ceil(130 * row.y / this.ymax);
+              return 'rgb(' + blue + ',50,50)';
+            }
+            else {
+              return '#000';
+            }
+            }
+        });  
+        Morris.Donut({
+            element: 'graph2',
+            data: podaci,
+            formatter: function (value) { return value + "%"}
         });
-    },
-    error: function(jqXHR, textStatus, errorThrown) {
-    }
+      }, // End success
+      error: function(jqXHR, textStatus, errorThrown) {}
+  });
 });
- 
- 
-
-
 </script>
 
 <%= render "navbar" %>

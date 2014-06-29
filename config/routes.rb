@@ -9,6 +9,7 @@ RestaurantsBa::Application.routes.draw do
 
     get '/', to: 'sessions#new'
     get 'logout', to: 'sessions#destroy'
+    resources :sessions
   end
 
   resources :users, only: [:new, :create]
