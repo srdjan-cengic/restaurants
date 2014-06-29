@@ -33,6 +33,7 @@ RestaurantsBa::Application.routes.draw do
       end
       member do
         get 'by_owner_id'
+        get 'restaurant_with_owner'
       end
 
     end
