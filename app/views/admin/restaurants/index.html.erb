@@ -11,12 +11,12 @@
     
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-      <h1>Listing restaurants</h1>
+      <h1><%= t ".list_restaurants" %></h1>
       <hr>
       <div class="col-xs-6">
         <%= form_tag(admin_restaurants_path, :method => "get", id: "search-form", :class => "form-inline", :remote => true) do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search restaurants", :class => "form-control" %>
-          <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
+          <%= text_field_tag :search, params[:search], placeholder: t(".search_restaurants"), :class => "form-control" %>
+          <%= submit_tag t(".search"), :name => nil, :class => "btn btn-success" %>
         <% end %>
       </div>
 
@@ -25,12 +25,12 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Telephone</th>
-            <th>Address</th>
-            <th>Web site</th>
-            <th>Owner</th>
+            <th><%= t ".name" %></th>
+            <th><%= t ".description" %></th>
+            <th><%= t ".telephone" %></th>
+            <th><%= t ".address" %></th>
+            <th><%= t ".web_site" %></th>
+            <th><%= t ".owner" %></th>
             <th></th>
             <th></th>
             <th></th>
@@ -46,11 +46,11 @@
               <td><%= restaurant.address %></td>
               <td><%= restaurant.fb_url[0,15]+'...' %></td>
               <td><%= User.find(restaurant.owner_id).email %></td>
-              <td><%= link_to 'Show', admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+              <td><%= link_to t(".show"), admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-info'}  %> 
               </td>
-              <td><%= link_to 'Edit', edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-success'}  %> 
+              <td><%= link_to t(".edit"), edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-success'}  %> 
               </td>
-              <td><%= link_to 'Destroy', admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
+              <td><%= link_to t(".destory"), admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
             </tr>
           <% end %>
         </tbody>
@@ -58,7 +58,7 @@
       </div>
       <br>
 
-      <%= link_to 'New Restaurant', new_admin_restaurant_path, 'class'=>'btn btn-primary' %>
+      <%= link_to t(".new"), new_admin_restaurant_path, 'class'=>'btn btn-primary' %>
 
       <div id="showModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       </div>

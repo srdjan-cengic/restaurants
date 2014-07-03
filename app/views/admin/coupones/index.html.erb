@@ -6,15 +6,15 @@
     <%= render "admin/dashboard/sidebar" %>
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <h1>Listing coupons</h1>
+      <h1><%= t ".list_coupones" %></h1>
       <hr>
 
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Restaurant</th>
-            <th>Number of available</th>
-            <th>Description</th>
+            <th><%= t ".restaurant" %> </th>
+            <th><%= t ".number" %> </th>
+            <th><%= t ".description" %> </th>
             
             <th></th>
             <th></th>
@@ -28,9 +28,9 @@
             <td><%= coupone.number_of_available  %></td>
             <td><%= coupone.description[0,30]+'...' %></td>
            
-            <td><%= link_to 'Show', admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
-            <td><%= link_to 'Edit', edit_admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-success'}  %> 
-            <td><%= link_to 'Destroy', admin_coupone_path(coupone), 
+            <td><%= link_to t(".show"), admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-info'}  %> 
+            <td><%= link_to t(".edit"), edit_admin_coupone_path(coupone),  {:remote => true ,'class'=>'btn btn-success'}  %> 
+            <td><%= link_to t(".destory"), admin_coupone_path(coupone), 
                                          method: :delete, data: { confirm: 'Are you sure?' }, 'class'=>'btn btn-danger' %></td>
           </tr>
 
@@ -41,7 +41,7 @@
       <br>
       
 
-      <%= link_to 'New Coupone', new_admin_coupone_path, 'class'=>'btn btn-primary' %>
+      <%= link_to t(".new_coupones"), new_admin_coupone_path, 'class'=>'btn btn-primary' %>
       <div id="showModal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
 

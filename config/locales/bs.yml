@@ -4,21 +4,67 @@ bs:
       default: "%m/%d/%Y"
   admin:
     dashboard:
-      index:
+      navbar:
         main_header: "Admin::Dashboard"
         locale: "Lokalizacija"
         current_user: "Trenutni korisnik"
         logout: "Odjava"
-        users: "Korisnici"
+        english: "Engleski jezik"
+        bosnian: "Bosanski jezik"
+      sidebar:
+        useres: "Korisnici" 
+        coupones: "Kuponi"
+        restaurantes: "Restorani"
+
     users:
       index:
         locale: "Lokalizacija"
-        datetime:
+        datetime: 
           formats:
             default: "%m/%d/%Y %H:%M"
             short: "%H:%M"
             notime: "%m/%d/%Y"
+        registered_users: "Registrovani korisnici"
+        email: "Email" 
+        last_login: "Posljednja prijava"
+        account_created_at: "Datum kreiranja računa"
+        confirmed: "Potvrđeno?"
+        show: "Prikaži"
+        edit: "Izmijeni"
+        destory: "Izbriši"
+        new_user: "Novi korisnik"
         time:
           formats:
             default: "%m/%d/%Y %H:%M"
             notime: "%m/%d/%Y"
+    coupones:
+      index:
+        show: "Prikaži"
+        edit: "Izmijeni"
+        destory: "Izbriši"
+        new_coupones: "Novi kupon"
+        list_coupones: "Kuponi"
+        restaurant: "Restoran" 
+        number: "Broj dostupnih kupona"
+        description: "Opis"
+    restaurants:
+      index:
+        show: "Prikaži"
+        edit: "Izmijeni"
+        destory: "Izbriši"
+        new: "Novi restoran"
+        list_restaurants: "Restorani"
+        name: "Naziv" 
+        description: "Opis"
+        telephone: "Telefon"
+        address: "Adresa"
+        web_site: "Web stranica"
+        owner: "Vlasnik"
+        search: "Pretraži"
+        search_restaurants: "Pronađi restoran"
+
+
+
+
+
+
