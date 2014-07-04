@@ -14,9 +14,10 @@
       <h1><%= t ".list_restaurants" %></h1>
       <hr>
       <div class="col-xs-6">
-        <%= form_tag(admin_restaurants_path, :method => "get", id: "search-form", :class => "form-inline", :remote => true) do %>
-          <%= text_field_tag :search, params[:search], placeholder: t(".search_restaurants"), :class => "form-control" %>
-          <%= submit_tag t(".search"), :name => nil, :class => "btn btn-success" %>
+        <%= form_tag(admin_restaurants_path, :method => "get", id: "search-form", 
+            :class => "form-inline", :remote => true) do %>
+          <%= text_field_tag :search, params[:search], :class => "form-control" %>
+          <%= submit_tag "Search", :name => nil, :class => "btn btn-success" %>
         <% end %>
       </div>
 

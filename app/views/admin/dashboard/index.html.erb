@@ -124,7 +124,7 @@ $(function() {
           }); 
           
           kuponi.coupones.forEach(function(entry) {
-            console.log("?", entry)
+            console.log("?", entry.restaurant);
             if($.inArray(entry.restaurant.name, restorani) != -1) {
 
               for (var i = 0; i < rezultati.length; i++) {
