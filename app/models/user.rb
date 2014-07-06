@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	has_one :restaurant, foreign_key: "owner_id"
 	has_many :votes, foreign_key: "user_id" 
+	has_many :reservations, foreign_key: "user_id"
 	belongs_to :role
 	# Authentication logic inside User model(2 methods, encrypt_password, authenticate)
 	# WHY FROM SCRATCH? BECAUSE YOU WANT TO FULLY UNDERSTAN WHAT IS HAPPENING UNDER THE HOOD.
