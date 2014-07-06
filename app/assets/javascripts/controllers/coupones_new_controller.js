@@ -1,11 +1,4 @@
 RestaurantsBa.CouponesNewController = Ember.ArrayController.extend({
-    programmers: [{
-        firstName: "Yehuda",
-        id: 1
-    }, {
-        firstName: "Tom",
-        id: 2
-    }],
     currentRestaurant: {
         id: 0
     },

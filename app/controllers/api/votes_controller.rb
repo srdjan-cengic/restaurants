@@ -8,9 +8,9 @@ class Api::VotesController < ApplicationController
   end
 
   def numberOfVotes
-  	@vote = Votes.find(restaurant_id: params[:restaurant_id]).count()
+  	@vote = Vote.where(restaurant_id: params[:restaurant_id]).count
   	
-  	render json: @vote
+  	render json: @vote  
   end
 
 end
