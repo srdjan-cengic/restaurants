@@ -20,6 +20,7 @@ RestaurantsBa.CouponesNewRoute = Ember.Route.extend({
                 //console.log(data);
                 //  console.log(data.restaurants);
                 //self.controllerFor("coupones_new").set("content", data.restaurants);
+                //Formiraj modifikovani niz objekata restorana samo sa id-om i imenom restorana
                 data.restaurants.forEach(function(entry) {
                     restorani.push({
                         'id': entry.id,
@@ -27,6 +28,8 @@ RestaurantsBa.CouponesNewRoute = Ember.Route.extend({
                     });
                 });
                 self.controllerFor("coupones_new").set("content", restorani);
+                self.controllerFor("coupones_new").set("currentRestaurant.id", restorani[0].id);
+
 
 
 

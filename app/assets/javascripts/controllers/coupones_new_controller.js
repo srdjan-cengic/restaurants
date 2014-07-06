@@ -1,5 +1,14 @@
 RestaurantsBa.CouponesNewController = Ember.ArrayController.extend({
-    SelectedId: null,
+    programmers: [{
+        firstName: "Yehuda",
+        id: 1
+    }, {
+        firstName: "Tom",
+        id: 2
+    }],
+    currentRestaurant: {
+        id: 0
+    },
     actions: {
         create: function() {
             var self = this;
@@ -10,7 +19,7 @@ RestaurantsBa.CouponesNewController = Ember.ArrayController.extend({
                 data: {
                     "coupones[description]": this.get("description"),
                     "coupones[number_of_available]": this.get("number_of_available"),
-                    "coupones[restaurant_id]": this.get("SelectedId"),
+                    "coupones[restaurant_id]": this.get("currentRestaurant.id"),
                     "coupones[available_from]": this.get("available_from"),
                     "coupones[ends_at]": this.get("ends_at")
                 },

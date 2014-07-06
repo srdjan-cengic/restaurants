@@ -41,7 +41,7 @@
                         <span class="input-group-addon">
                             <i class="glyphicon glyphicon-calendar"></i>
                         </span>
-                        {{view Ember.Select selectionBinding = 'this.controller.SelectedId' content=content optionValuePath="content.id" optionLabelPath="content.name"}}
+                        {{view Ember.Select content=content optionValuePath="content.id"  optionLabelPath="content.name" value=currentRestaurant.id}}
                     </div>
                             
 
