@@ -44,7 +44,11 @@ RestaurantsBa::Application.routes.draw do
       end
     end
     resources :sessions, only: [:create, :destroy], defaults: {format: 'json'}
-    resources :votes, defaults: {format: 'json'}
+    resources :votes, defaults: {format: 'json'} do
+      member do
+        get 'numberOfVotes'
+      end
+    end# api/votes(POST)
 
   end
 

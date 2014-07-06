@@ -1,6 +1,4 @@
 RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
-
-
 	actions: {
 		all: function(){
 			var self = this;
@@ -32,16 +30,32 @@ RestaurantsBa.RestaurantsController = Ember.ArrayController.extend({
 				error: function(jqXHR, textStatus, errorThrown) {
 				}
 			});
-		},
 
-		numberOfVotes: function(restaurant_id){
 			$.ajax({
 				type: "GET",
-				url: "api/votes",
+				url: "api/votes/" + restaurant_id + "/numberOfVotes",
 				data: {
 					restaurant_id: restaurant_id
 				},
 				success: function(data) {
+					console.log(data);		
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+				}
+			});
+		},
+		// url: "api/votes",
+		numberOfVotes: function(restaurant_id){
+			var brojGlasova;
+			$.ajax({
+				type: "GET",
+				url: "api/votes/" + restaurant_id + "/numberOfVotes",
+				data: {
+					restaurant_id: restaurant_id
+				},
+				success: function(data) {
+					console.log(data);
+					brojGlasova = data;
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
 				}

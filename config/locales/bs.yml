@@ -12,9 +12,9 @@ bs:
         english: "Engleski jezik"
         bosnian: "Bosanski jezik"
       sidebar:
-        useres: "Korisnici" 
-        coupones: "Kuponi"
-        restaurantes: "Restorani"
+        users: "Korisnici" 
+        coupons: "Kuponi"
+        restaurants: "Restorani"
 
     users:
       index:
