@@ -51,7 +51,7 @@
               </td>
               <td><%= link_to t(".edit"), edit_admin_restaurant_path(restaurant),  {:remote => true ,'class'=>'btn btn-success'}  %> 
               </td>
-              <td><%= link_to t(".destory"), admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
+              <td><%= link_to t(".destroy"), admin_restaurant_path(restaurant), method: :delete, data: { confirm: 'Are you sure?'} , 'class'=>'btn btn-danger'  %></td>
             </tr>
           <% end %>
         </tbody>

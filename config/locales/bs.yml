@@ -31,7 +31,7 @@ bs:
         confirmed: "Potvrđeno?"
         show: "Prikaži"
         edit: "Izmijeni"
-        destory: "Izbriši"
+        destroy: "Izbriši"
         new_user: "Novi korisnik"
         time:
           formats:
@@ -41,9 +41,9 @@ bs:
       index:
         show: "Prikaži"
         edit: "Izmijeni"
-        destory: "Izbriši"
-        new_coupones: "Novi kupon"
-        list_coupones: "Kuponi"
+        destroy: "Izbriši"
+        new_coupons: "Novi kupon"
+        list_coupons: "Kuponi"
         restaurant: "Restoran" 
         number: "Broj dostupnih kupona"
         description: "Opis"
@@ -51,7 +51,7 @@ bs:
       index:
         show: "Prikaži"
         edit: "Izmijeni"
-        destory: "Izbriši"
+        destroy: "Izbriši"
         new: "Novi restoran"
         list_restaurants: "Restorani"
         name: "Naziv" 
